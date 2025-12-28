@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="language-en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ad Pollex - Emotion-driven digital marketing agency in Tanzania creating unforgettable brand experiences since 2016">
+    
+    <!-- Enhanced Open Graph -->
+    <meta property="og:title" content="Ad Pollex | Where Emotion Meets Strategy">
+    <meta property="og:description" content="Tanzania's premier digital marketing agency blending data-driven strategy with emotional connection for unforgettable results">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adpollex.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/logo/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Enhanced for emotional impact -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <title>Ad Pollex | Where Strategy Breathes Emotion</title>
+    
+    <!-- Integrated CSS for emotional impact -->
+    <style>
+        /* === ROOT VARIABLES === */
+        :root {
+            /* Color Palette - Emotional & Professional */
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #60a5fa;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-light: #9ca3af;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-emphasis: 0 20px 25px -5px rgba(37, 99, 235, 0.1);
+            
+            /* Typography Scale */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-accent: 'Poppins', sans-serif;
+            
+            /* Spacing - Golden Ratio */
+            --space-xs: 0.618rem;
+            --space-sm: 1rem;
+            --space-md: 1.618rem;
+            --space-lg: 2.618rem;
+            --space-xl: 4.236rem;
+            
+            /* Transitions - Emotional timing */
+            --transition-smooth: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            --transition-quick: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* === BASE RESET & TYPOGRAPHY === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            line-height: 1.618;
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+        
+        /* Emotional Typography System */
+        h1, h2, h3, h4, .hero-title, .section-title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-md);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+        
+        /* === TOP BAR ENHANCEMENT === */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .top-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info span {
+            margin-right: var(--space-lg);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Language Switcher - Emotional */
+        .language-switcher {
+            display: flex;
+            gap: 4px;
+            background: rgba(255,255,255,0.1);
+            padding: 4px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .lang-btn {
+            padding: 6px 16px;
+            border: none;
+            background: transparent;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-quick);
+            font-weight: 500;
+        }
+        
+        .lang-btn.active {
+            background: white;
+            color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .lang-btn:hover:not(.active) {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: var(--transition-quick);
+        }
+        
+        .dark-mode-toggle:hover {
+            background: rgba(255,255,255,0.1);
+            transform: rotate(15deg);
+        }
+        
+        /* === NAVIGATION - REFINED === */
+        .navbar {
+            background: var(--bg-white);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+        
+        .logo-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-emphasis);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Navigation Menu */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-xl);
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition-quick);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width var(--transition-smooth);
+        }
+        
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* CTA Button - Emotional */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-lg {
+            padding: 16px 40px;
+            font-size: 1.1rem;
+        }
+        
+        /* === HERO SECTION - GOOSEBUMPS === */
+        .hero {
+            padding: var(--space-xl) 0;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #f0f4ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 30%, rgba(59, 130, 246, 0.05) 100%);
+            clip-path: polygon(100% 0, 100% 100%, 0 100%, 30% 0);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero-badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+            color: var(--text-primary);
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+        
+        /* Hero Stats */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+        
+        .stat-item p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* === SERVICES SECTION === */
+        .services-preview {
+            padding: var(--space-xl) 0;
+            background: var(--bg-white);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+        
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .service-card {
+            background: var(--bg-white);
+            padding: var(--space-lg);
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            transition: height var(--transition-smooth);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-emphasis);
+        }
+        
+        .service-card:hover::before {
+            height: 100%;
+        }
+        
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-md);
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+        
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-quick);
+        }
+        
+        .service-link:hover {
+            gap: 12px;
+            color: var(--secondary);
+        }
+        
+        /* === WHY CHOOSE US === */
+        .why-choose-us {
+            padding: var(--space-xl) 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f4ff 100%);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
+        
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .feature-card {
+            padding: var(--space-lg);
+            background: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .feature-number {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.1;
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            line-height: 1;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+        
+        /* === PORTFOLIO PREVIEW === */
+        .portfolio-preview {
+            padding: var(--space-xl) 0;
+            background: var(--bg-white);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+        
+        @media (max-width: 992px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .portfolio-item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-smooth);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-emphasis);
+        }
+        
+        .portfolio-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-smooth);
+        }
+        
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-content {
+            padding: var(--space-lg);
+            background: var(--bg-white);
+        }
+        
+        .portfolio-category {
+            display: inline-block;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* === CTA SECTION - EMOTIONAL PULL === */
+        .cta-section {
+            padding: var(--space-xl) 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: var(--space-md);
+            color: white;
+        }
+        
+        .cta-content p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* === FOOTER === */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: var(--space-xl) 0 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+        
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .footer-col h4 {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-md);
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: var(--transition-quick);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 8px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-quick);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-4px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: var(--space-lg) 0;
+        }
+        
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-bottom-links {
+            display: flex;
+            gap: var(--space-lg);
+        }
+        
+        .footer-bottom-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: var(--transition-quick);
+        }
+        
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+        
+        /* === WHATSAPP FLOAT === */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            transition: var(--transition-smooth);
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            background: var(--text-primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: var(--transition-quick);
+            pointer-events: none;
+        }
+        
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* === BACK TO TOP === */
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+            z-index: 999;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-4px);
+        }
+        
+        /* === ANIMATIONS === */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes shimmer {
+            100% { left: 100%; }
+        }
+        
+        /* === UTILITY CLASSES === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: var(--space-lg); }
+        
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+        
+        @media (max-width: 992px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu, .nav-cta {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100%;
+            background: var(--bg-white);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+            transition: right var(--transition-smooth);
+            z-index: 1001;
+            padding: var(--space-lg);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .mobile-nav {
+            list-style: none;
+        }
+        
+        .mobile-nav li {
+            margin-bottom: var(--space-md);
+        }
+        
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: block;
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        /* Language-specific styles */
+        .language-sw:lang(sw) {
+            display: none;
+        }
+        
+        .language-en:lang(en) {
+            display: none;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone-alt"></i> +255 684 320 325</span>
+                    <span><i class="fas fa-envelope"></i> adpollex@gmail.com</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Mwinyijuma Rd, Kinondoni, Dar es Salaam</span>
+                </div>
+                <div class="top-bar-controls">
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="en">
+                            <i class="fas fa-globe"></i> EN
+                        </button>
+                        <button class="lang-btn" data-lang="sw">
+                            <i class="fas fa-globe"></i> SW
+                        </button>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Ad <span class="highlight">Pollex</span></h1>
+                    <p class="logo-tagline">Where Strategy Breathes Emotion</p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- CTA Button -->
+            <a href="contact.html" class="btn btn-primary nav-cta">
+                Let's Connect <i class="fas fa-arrow-right"></i>
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <a href="index.html" class="logo">
+                    <h2>Ad <span class="highlight">Pollex</span></h2>
+                </a>
+                <button class="mobile-menu-close" id="mobileMenuClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="mobile-nav">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-cta">
+                <a href="contact.html" class="btn btn-primary">
+                    Start Your Journey
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-award"></i> Crafting Emotion Since 2016
+                </div>
+                <h1 class="hero-title">
+                    We Don't Just Market<br>
+                    We Make People <span class="highlight">Feel</span>
+                </h1>
+                <p class="hero-description">
+                    Tanzania's premier digital marketing agency where data-driven strategy meets human emotion. We create campaigns that don't just reach eyes—they touch hearts, move minds, and inspire action.
+                </p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-lg">
+                        Feel The Difference <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="portfolio.html" class="btn btn-outline btn-lg">
+                        See The Magic <i class="fas fa-eye"></i>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>8+</h3>
+                        <p>Years of Emotional Craft</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>200+</h3>
+                        <p>Hearts Touched</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Brands Transformed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>∞</h3>
+                        <p>Possibilities Ahead</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="section services-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Craft With Soul</h2>
+                <p class="section-subtitle">We blend strategy with emotion to create marketing that doesn't just work—it resonates.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Emotional Brand Strategy</h3>
+                    <p>We build brands that people don't just recognize—they feel, remember, and love. Your story told with soul.</p>
+                    <a href="services.html#branding" class="service-link">
+                        Feel The Connection →
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Digital That Pulses</h3>
+                    <p>Campaigns with heartbeat. Social media that converses, content that breathes, engagement that feels alive.</p>
+                    <a href="services.html#digital" class="service-link">
+                        See The Pulse →
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Visual Storytelling</h3>
+                    <p>Photography and design that doesn't just show—it reveals, evokes, and stays in memory like a beautiful dream.</p>
+                    <a href="services.html#visuals" class="service-link">
+                        View The Stories →
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                    <h3>Growth With Meaning</h3>
+                    <p>SEO and strategy that builds not just traffic, but journeys. Not just leads, but relationships.</p>
+                    <a href="services.html#growth" class="service-link">
+                        Grow With Purpose →
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="services.html" class="btn btn-primary">
+                    Explore All Soulcraft <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Unforgettable Difference</h2>
+                <p class="section-subtitle">Why choose between data and emotion when you can have both?</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-number">01</div>
+                    <h3>We Listen With Soul</h3>
+                    <p>Before we strategize, we listen. Not just to your goals, but to your fears, dreams, and the unspoken heartbeat of your brand.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-number">02</div>
+                    <h3>Emotion As Strategy</h3>
+                    <p>We've mastered the art of weaving human emotion into data-driven campaigns. Because people remember how you made them feel.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-number">03</div>
+                    <h3>Tanzanian Heartbeat</h3>
+                    <p>Deeply rooted in Tanzania, we understand the unique rhythm of this market—its culture, its people, its soul.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-number">04</div>
+                    <h3>Beauty That Works</h3>
+                    <p>We believe beautiful design and powerful results aren't mutually exclusive. We deliver both, always.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Preview -->
+    <section class="section portfolio-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Moments We Crafted</h2>
+                <p class="section-subtitle">Campaigns that didn't just perform—they touched, moved, and transformed.</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Brand Transformation">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Brand Soul</span>
+                        <h3>The Tanzanian Tea Company</h3>
+                        <p>Transformed a traditional tea brand into an emotional experience, increasing emotional engagement by 400%.</p>
+                        <a href="portfolio.html#project1" class="btn btn-primary">
+                            Feel This Story
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Safari Experience">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Experience Design</span>
+                        <h3>Serengeti Dreams Safari</h3>
+                        <p>Created a digital journey that captures the magic of Tanzania, increasing dream-to-booking conversion by 250%.</p>
+                        <a href="portfolio.html#project2" class="btn btn-primary">
+                            Take The Journey
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="portfolio.html" class="btn btn-primary">
+                    Witness All Stories <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready To Feel Different?</h2>
+                <p>Let's create something that doesn't just get seen—it gets felt, remembered, and loved.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-lg">
+                        Start The Feeling <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="tel:+255684320325" class="btn btn-outline btn-lg">
+                        <i class="fas fa-phone-alt"></i> +255 684 320 325
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="logo-text">
+                            <h3>Ad <span class="highlight">Pollex</span></h3>
+                            <p class="footer-tagline">Marketing With Soul</p>
+                        </div>
+                    </a>
+                    <p class="footer-description">
+                        Tanzania's emotion-first digital marketing agency. We believe in creating work that touches hearts as much as it drives results.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Behance">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Dribbble">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h4>Feel More</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Our Soulcraft</a></li>
+                        <li><a href="portfolio.html">Emotional Portfolio</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="contact.html">Connect Soulfully</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-col">
+                    <h4>Our Soulwork</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#branding">Brand Soul</a></li>
+                        <li><a href="services.html#digital">Digital Pulse</a></li>
+                        <li><a href="services.html#visuals">Visual Poetry</a></li>
+                        <li><a href="services.html#strategy">Heart-Led Strategy</a></li>
+                        <li><a href="services.html#growth">Meaningful Growth</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-col">
+                    <h4>Connect Soulfully</h4>
+                    <div class="contact-info">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Mwinyijuma Road, Kinondoni<br>Dar es Salaam, Tanzania</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+255684320325">+255 684 320 325</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:hello@adpollex.com">hello@adpollex.com</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-heart"></i>
+                            <span>Ready to feel something beautiful?</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Ad Pollex. Crafted with soul in Tanzania.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Soul Promise</a>
+                        <a href="#">Emotional Ethics</a>
+                        <a href="#">Heart Space</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/255684320325" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Let's talk soulfully</span>
+    </a>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Integrated JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Language Switcher
+        const langButtons = document.querySelectorAll('.lang-btn');
+        
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const lang = button.getAttribute('data-lang');
+                
+                // Update active state
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Update HTML lang attribute
+                document.documentElement.lang = lang;
+                
+                // Here you would typically load language files
+                // For this example, we'll just show an alert
+                if (lang === 'sw') {
+                    document.title = "Ad Pollex | Uuzaji wa Kimkakati na Kihisia";
+                    // You would update all text elements here
+                } else {
+                    document.title = "Ad Pollex | Where Strategy Breathes Emotion";
+                }
+            });
+        });
+        
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const moonIcon = darkModeToggle.querySelector('.fa-moon');
+        const sunIcon = darkModeToggle.querySelector('.fa-sun') || (() => {
+            const sun = document.createElement('i');
+            sun.className = 'fas fa-sun';
+            sun.style.display = 'none';
+            darkModeToggle.appendChild(sun);
+            return sun;
+        })();
+        
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+                
+                // Update CSS variables for dark mode
+                document.documentElement.style.setProperty('--text-primary', '#f3f4f6');
+                document.documentElement.style.setProperty('--text-secondary', '#d1d5db');
+                document.documentElement.style.setProperty('--bg-light', '#111827');
+                document.documentElement.style.setProperty('--bg-white', '#1f2937');
+            } else {
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+                
+                // Reset to light mode variables
+                document.documentElement.style.setProperty('--text-primary', '#111827');
+                document.documentElement.style.setProperty('--text-secondary', '#4b5563');
+                document.documentElement.style.setProperty('--bg-light', '#f8fafc');
+                document.documentElement.style.setProperty('--bg-white', '#ffffff');
+            }
+        });
+        
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .feature-card, .portfolio-item').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Emotional hover effects
+        document.querySelectorAll('.service-card, .feature-card').forEach(card => {
+            card.addEventListener('mouseenter', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+        
+        // Add CSS for emotional hover effect
+        const style = document.createElement('style');
+        style.textContent = `
+            .service-card:hover, .feature-card:hover {
+                background: radial-gradient(
+                    800px circle at var(--mouse-x) var(--mouse-y),
+                    rgba(59, 130, 246, 0.1),
+                    transparent 40%
+                );
+            }
+            
+            .animate-in {
+                animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            
+            @keyframes fadeUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
