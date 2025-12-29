@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="smooth-scroll">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ad Pollex - Full-service digital marketing solutions in Tanzania. SEO, Social Media, Branding, and Advertising services.">
+    <meta name="keywords" content="digital marketing services Tanzania, SEO Dar es Salaam, social media management, brand strategy Tanzania">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Ad Pollex | Digital Marketing Services Tanzania">
+    <meta property="og:description" content="Comprehensive digital marketing solutions for Tanzanian businesses">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adpollex.com/services">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/logo/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Styles -->
+    <style>
+        /* Inherit all base styles from index.html */
+        :root {
+            --primary-color: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary-color: #7209b7;
+            --accent-color: #f72585;
+            --dark-color: #121212;
+            --darker-color: #0a0a0a;
+            --light-color: #f8f9fa;
+            --lighter-color: #ffffff;
+            --gray-light: #e9ecef;
+            --gray: #6c757d;
+            --gray-dark: #343a40;
+            --success-color: #4cc9f0;
+            --warning-color: #f8961e;
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --box-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+            --box-shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --transition-slow: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+            --section-spacing: 120px;
+            --container-width: 1320px;
+            --header-height: 80px;
+        }
+        
+        /* Page-specific styles */
+        .page-header {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(114, 9, 183, 0.05));
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body.dark-mode .page-header {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.15), rgba(18, 18, 18, 0.9));
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(67,97,238,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--dark-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        body.dark-mode .page-title {
+            background: linear-gradient(to right, var(--light-color), var(--success-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+        
+        body.dark-mode .page-subtitle {
+            color: var(--gray-light);
+        }
+        
+        /* Service Detail Styles */
+        .service-detail {
+            padding: var(--section-spacing) 0;
+        }
+        
+        .service-hero {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 80px;
+            padding: 60px;
+            background: linear-gradient(135deg, var(--lighter-color), rgba(67, 97, 238, 0.03));
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+        }
+        
+        body.dark-mode .service-hero {
+            background: linear-gradient(135deg, var(--dark-color), rgba(67, 97, 238, 0.1));
+        }
+        
+        .service-hero-content {
+            flex: 1;
+        }
+        
+        .service-hero-image {
+            flex: 1;
+        }
+        
+        .service-hero-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-lg);
+            transform: perspective(1000px) rotateY(5deg);
+            transition: var(--transition-slow);
+        }
+        
+        .service-hero-image:hover img {
+            transform: perspective(1000px) rotateY(0);
+        }
+        
+        .service-icon-large {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .service-feature {
+            padding: 40px;
+            background: var(--lighter-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body.dark-mode .service-feature {
+            background: var(--dark-color);
+        }
+        
+        .service-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .service-feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-process {
+            background: var(--light-color);
+            padding: 80px 0;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body.dark-mode .service-process {
+            background: var(--darker-color);
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--lighter-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        body.dark-mode .process-step {
+            background: var(--dark-color);
+        }
+        
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .service-pricing {
+            padding: 80px 0;
+        }
+        
+        .pricing-plans {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .pricing-plan {
+            background: var(--lighter-color);
+            border-radius: var(--border-radius-lg);
+            padding: 50px 40px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        body.dark-mode .pricing-plan {
+            background: var(--dark-color);
+        }
+        
+        .pricing-plan:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .pricing-plan.popular {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+        
+        .pricing-plan.popular:hover {
+            transform: scale(1.05) translateY(-15px);
+        }
+        
+        .plan-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .plan-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin: 20px 0;
+        }
+        
+        body.dark-mode .plan-price {
+            color: var(--success-color);
+        }
+        
+        .plan-price span {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray);
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .plan-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        body.dark-mode .plan-features li {
+            border-bottom: 1px solid var(--gray-dark);
+        }
+        
+        .plan-features i {
+            color: var(--success-color);
+        }
+        
+        .plan-features .not-included {
+            color: var(--gray);
+            opacity: 0.6;
+        }
+        
+        .plan-features .not-included i {
+            color: var(--gray);
+        }
+        
+        /* Case Studies */
+        .case-studies {
+            padding: 80px 0;
+            background: var(--light-color);
+        }
+        
+        body.dark-mode .case-studies {
+            background: var(--darker-color);
+        }
+        
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .case-study-card {
+            background: var(--lighter-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        body.dark-mode .case-study-card {
+            background: var(--dark-color);
+        }
+        
+        .case-study-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .case-study-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .case-study-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+        
+        .case-study-card:hover .case-study-image img {
+            transform: scale(1.05);
+        }
+        
+        .case-study-content {
+            padding: 40px;
+        }
+        
+        .case-study-stats {
+            display: flex;
+            gap: 30px;
+            margin: 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--gray-light);
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        body.dark-mode .case-study-stats {
+            border-top: 1px solid var(--gray-dark);
+            border-bottom: 1px solid var(--gray-dark);
+        }
+        
+        .stat {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        body.dark-mode .stat-value {
+            color: var(--success-color);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--lighter-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        body.dark-mode .faq-item {
+            background: var(--dark-color);
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: rgba(67, 97, 238, 0.05);
+        }
+        
+        body.dark-mode .faq-question:hover {
+            background: rgba(67, 97, 238, 0.1);
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition-slow);
+        }
+        
+        .faq-answer.active {
+            padding: 0 30px 25px;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        /* Service Navigation */
+        .service-nav {
+            position: sticky;
+            top: calc(var(--header-height) + 20px);
+            background: var(--lighter-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            z-index: 100;
+            margin-bottom: 40px;
+        }
+        
+        body.dark-mode .service-nav {
+            background: var(--dark-color);
+        }
+        
+        .service-nav h4 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .service-nav-links {
+            list-style: none;
+        }
+        
+        .service-nav-links li {
+            margin-bottom: 15px;
+        }
+        
+        .service-nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .service-nav-links a:hover,
+        .service-nav-links a.active {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary-color);
+        }
+        
+        body.dark-mode .service-nav-links a:hover,
+        body.dark-mode .service-nav-links a.active {
+            background: rgba(67, 97, 238, 0.2);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 1200px) {
+            .service-features,
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .pricing-plans {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .service-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .case-study-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .service-features,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-study-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .service-nav {
+                position: static;
+                margin-bottom: 40px;
+            }
+            
+            .page-header {
+                padding: 120px 0 60px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 2.3rem;
+            }
+            
+            .service-hero {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+    
+    <title data-en="Ad Pollex | Digital Marketing Services Tanzania" 
+           data-sw="Ad Pollex | Huduma za Uuzaji Mtandaoni Tanzania">
+        Ad Pollex | Digital Marketing Services Tanzania
+    </title>
+</head>
+<body class="light-mode">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Top Bar (Same as index.html) -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone-alt"></i> +255 684 320 325</span>
+                    <span><i class="fas fa-envelope"></i> adpollex@gmail.com</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Mwinyijuma Rd, Kinondoni, Dar es Salaam</span>
+                </div>
+                <div class="top-bar-controls">
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="en">
+                            <img src="https://flagcdn.com/w20/gb.png" alt="English"> EN
+                        </button>
+                        <button class="lang-btn" data-lang="sw">
+                            <img src="https://flagcdn.com/w20/tz.png" alt="Swahili"> SW
+                        </button>
+                    </div>
+                    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun" style="display: none;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Ad <span class="highlight">Pollex</span></h1>
+                    <p class="logo-tagline" data-en="Advertising & Digital Marketing" data-sw="Utangazaji na Uuzaji Mtandaoni">
+                        Advertising & Digital Marketing
+                    </p>
+                </div>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-en="Home" data-sw="Nyumbani">Home</a></li>
+                <li><a href="services.html" class="nav-link active" data-en="Services" data-sw="Huduma">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link" data-en="Portfolio" data-sw="Portfolio">Portfolio</a></li>
+                <li><a href="about.html" class="nav-link" data-en="About Us" data-sw="Kuhusu Sisi">About Us</a></li>
+                <li><a href="contact.html" class="nav-link" data-en="Contact" data-sw="Mawasiliano">Contact</a></li>
+            </ul>
+
+            <a href="contact.html" class="btn btn-primary nav-cta" data-en="Get Started" data-sw="Anza Sasa">
+                Get Started <i class="fas fa-arrow-right"></i>
+            </a>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <a href="index.html" class="logo">
+                    <h2>Ad <span class="highlight">Pollex</span></h2>
+                </a>
+                <button class="mobile-menu-close" id="mobileMenuClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="mobile-nav">
+                <li><a href="index.html" data-en="Home" data-sw="Nyumbani">Home</a></li>
+                <li><a href="services.html" class="active" data-en="Services" data-sw="Huduma">Services</a></li>
+                <li><a href="portfolio.html" data-en="Portfolio" data-sw="Portfolio">Portfolio</a></li>
+                <li><a href="about.html" data-en="About Us" data-sw="Kuhusu Sisi">About Us</a></li>
+                <li><a href="contact.html" data-en="Contact" data-sw="Mawasiliano">Contact</a></li>
+            </ul>
+            <div class="mobile-cta">
+                <a href="contact.html" class="btn btn-primary" data-en="Get Free Consultation" data-sw="Pata Usauri Bure">
+                    Get Free Consultation
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="page-title fade-in" data-en="Our Services" data-sw="Huduma Zetu">
+                    Our Services
+                </h1>
+                <p class="page-subtitle fade-in" data-en="Comprehensive digital marketing solutions designed to grow your business in Tanzania's competitive market. Each service is crafted with precision, backed by data, and delivered with excellence."
+                   data-sw="Suluhisho kamili la uuzaji mtandaoni zilizobuniwa kukuza biashara yako katika soko lenye ushindani la Tanzania. Kila huduma imeundwa kwa usahihi, inategemewa na data, na inatolewa kwa ubora.">
+                    Comprehensive digital marketing solutions designed to grow your business in Tanzania's competitive market.
+                </p>
+                <a href="#digital-marketing" class="btn btn-primary btn-lg fade-in-delay-1" data-en="Explore Services" data-sw="Chunguza Huduma">
+                    Explore Services <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Navigation -->
+    <div class="container">
+        <div class="service-nav">
+            <h4 data-en="Service Categories" data-sw="Aina za Huduma">Service Categories</h4>
+            <ul class="service-nav-links">
+                <li><a href="#digital-marketing" class="active" data-en="Digital Marketing" data-sw="Uuzaji Mtandaoni">
+                    <i class="fas fa-bullhorn"></i> Digital Marketing
+                </a></li>
+                <li><a href="#branding" data-en="Brand Strategy" data-sw="Mkakati wa Chapa">
+                    <i class="fas fa-paint-brush"></i> Brand Strategy
+                </a></li>
+                <li><a href="#seo" data-en="SEO & Website" data-sw="SEO na Tovuti">
+                    <i class="fas fa-chart-line"></i> SEO & Website
+                </a></li>
+                <li><a href="#social-media" data-en="Social Media" data-sw="Mitandao ya Kijamii">
+                    <i class="fas fa-users"></i> Social Media
+                </a></li>
+                <li><a href="#advertising" data-en="Advertising" data-sw="Utangazaji">
+                    <i class="fas fa-ad"></i> Advertising
+                </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Digital Marketing Service -->
+    <section class="service-detail" id="digital-marketing">
+        <div class="container">
+            <div class="service-hero fade-in">
+                <div class="service-hero-content">
+                    <div class="service-icon-large">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h2 data-en="Digital Marketing & Advertising" data-sw="Uuzaji Mtandaoni na Utangazaji">
+                        Digital Marketing & Advertising
+                    </h2>
+                    <p class="page-subtitle" data-en="Strategic online campaigns that deliver measurable results and ROI. We craft data-driven strategies tailored to the Tanzanian market, ensuring your message reaches the right audience at the right time."
+                       data-sw="Kampeni za mkakati mtandaoni zinazotoa matokeo yanayoweza kupimika na ROI. Tunabuni mikakati inayotokana na data iliyobinafsishwa kwa soko la Tanzania, kuhakikisha ujumbe wako unafikia hadhira sahihi kwa wakati sahihi.">
+                        Strategic online campaigns that deliver measurable results and ROI.
+                    </p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature fade-in">
+                            <div class="service-feature-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h4 data-en="Data-Driven Strategy" data-sw="Mkakati Unaotokana na Data">
+                                Data-Driven Strategy
+                            </h4>
+                            <p data-en="Every decision backed by analytics and market research."
+                               data-sw="Kila uamuzi unategemewa na uchambuzi na utafiti wa soko.">
+                                Every decision backed by analytics and market research.
+                            </p>
+                        </div>
+                        
+                        <div class="service-feature fade-in-delay-1">
+                            <div class="service-feature-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h4 data-en="Targeted Campaigns" data-sw="Kampeni Zilizolengwa">
+                                Targeted Campaigns
+                            </h4>
+                            <p data-en="Reach your ideal customers with precision targeting."
+                               data-sw="Fikia wateja wako bora kwa utambuzi sahihi.">
+                                Reach your ideal customers with precision targeting.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="btn btn-primary" data-en="Start Your Campaign" data-sw="Anza Kampeni Yako">
+                        Start Your Campaign <i class="fas fa-rocket"></i>
+                    </a>
+                </div>
+                
+                <div class="service-hero-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Digital Marketing Analytics Dashboard"
+                         data-en="Marketing Analytics Dashboard"
+                         data-sw="Dashibodi ya Uchambuzi wa Uuzaji">
+                </div>
+            </div>
+            
+            <!-- Process -->
+            <div class="service-process">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title fade-in" data-en="Our 4-Step Process" data-sw="Mchakato Wetu wa Hatua 4">
+                            Our 4-Step Process
+                        </h2>
+                        <p class="section-subtitle fade-in" data-en="A systematic approach to ensure your marketing success"
+                           data-sw="Njia ya kimfumo ya kuhakikisha mafanikio ya uuzaji wako">
+                            A systematic approach to ensure your marketing success
+                        </p>
+                    </div>
+                    
+                    <div class="process-steps">
+                        <div class="process-step fade-in">
+                            <div class="step-number">1</div>
+                            <h4 data-en="Discovery & Analysis" data-sw="Ugunduzi na Uchambuzi">
+                                Discovery & Analysis
+                            </h4>
+                            <p data-en="Deep dive into your business, market, and competition."
+                               data-sw="Kuangalia kwa kina biashara yako, soko, na ushindani.">
+                                Deep dive into your business, market, and competition.
+                            </p>
+                        </div>
+                        
+                        <div class="process-step fade-in-delay-1">
+                            <div class="step-number">2</div>
+                            <h4 data-en="Strategy Development" data-sw="Uundaji wa Mkakati">
+                                Strategy Development
+                            </h4>
+                            <p data-en="Custom marketing plan aligned with your business goals."
+                               data-sw="Mpango wa uuzaji uliobinafsishwa ulioendana na malengo yako ya biashara.">
+                                Custom marketing plan aligned with your business goals.
+                            </p>
+                        </div>
+                        
+                        <div class="process-step fade-in-delay-1">
+                            <div class="step-number">3</div>
+                            <h4 data-en="Campaign Execution" data-sw="Utekelezaji wa Kampeni">
+                                Campaign Execution
+                            </h4>
+                            <p data-en="Professional implementation across all digital channels."
+                               data-sw="Utekelezaji wa kitaalamu katika njia zote za dijitali.">
+                                Professional implementation across all digital channels.
+                            </p>
+                        </div>
+                        
+                        <div class="process-step fade-in-delay-2">
+                            <div class="step-number">4</div>
+                            <h4 data-en="Performance Optimization" data-sw="Uboreshaji wa Utendaji">
+                                Performance Optimization
+                            </h4>
+                            <p data-en="Continuous monitoring and improvement for maximum ROI."
+                               data-sw="Ufuatiliaji endelevu na uboreshaji kwa ROI ya juu zaidi.">
+                                Continuous monitoring and improvement for maximum ROI.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pricing -->
+            <div class="service-pricing">
+                <div class="section-header">
+                    <h2 class="section-title fade-in" data-en="Flexible Pricing Plans" data-sw="Mipango ya Bei Inayobadilika">
+                        Flexible Pricing Plans
+                    </h2>
+                    <p class="section-subtitle fade-in" data-en="Choose the perfect plan for your business needs"
+                       data-sw="Chagua mpango kamili kwa mahitaji ya biashara yako">
+                        Choose the perfect plan for your business needs
+                    </p>
+                </div>
+                
+                <div class="pricing-plans">
+                    <div class="pricing-plan fade-in">
+                        <h3 data-en="Starter" data-sw="Kuanza">Starter</h3>
+                        <div class="plan-price">$499<span>/mo</span></div>
+                        <p data-en="Perfect for small businesses starting their digital journey"
+                           data-sw="Kamilifu kwa biashara ndogo zinazoanza safari yao ya dijitali">
+                            Perfect for small businesses
+                        </p>
+                        
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> <span data-en="Social Media Management" data-sw="Usimamizi wa Mitandao ya Kijamii">Social Media Management</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="Basic SEO Optimization" data-sw="Uboreshaji wa Msingi wa SEO">Basic SEO Optimization</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="Monthly Performance Report" data-sw="Ripoti ya Mwezi ya Utendaji">Monthly Performance Report</span></li>
+                            <li class="not-included"><i class="fas fa-times"></i> <span data-en="Paid Advertising" data-sw="Utangazaji wa Kulipwa">Paid Advertising</span></li>
+                            <li class="not-included"><i class="fas fa-times"></i> <span data-en="Email Marketing" data-sw="Uuzaji wa Barua pepe">Email Marketing</span></li>
+                        </ul>
+                        
+                        <a href="contact.html" class="btn btn-outline" data-en="Get Started" data-sw="Anza">
+                            Get Started
+                        </a>
+                    </div>
+                    
+                    <div class="pricing-plan popular fade-in-delay-1">
+                        <div class="plan-badge" data-en="MOST POPULAR" data-sw="INAVYOPENDELEWA ZAIDI">MOST POPULAR</div>
+                        <h3 data-en="Growth" data-sw="Ukuaji">Growth</h3>
+                        <div class="plan-price">$999<span>/mo</span></div>
+                        <p data-en="Ideal for growing businesses wanting to scale rapidly"
+                           data-sw="Bora kwa biashara zinazokua zinazotaka kukuza kwa kasi">
+                            Ideal for growing businesses
+                        </p>
+                        
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> <span data-en="Everything in Starter" data-sw="Kila kitu katika Kuanza">Everything in Starter</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="Google & Facebook Ads" data-sw="Matangazo ya Google na Facebook">Google & Facebook Ads</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="Email Marketing Campaigns" data-sw="Kampeni za Uuzaji wa Barua pepe">Email Marketing Campaigns</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="Weekly Strategy Calls" data-sw="Mikakati ya Kilo wiki ya Mikakati">Weekly Strategy Calls</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="Advanced Analytics" data-sw="Uchambuzi wa Juu">Advanced Analytics</span></li>
+                        </ul>
+                        
+                        <a href="contact.html" class="btn btn-primary" data-en="Choose Plan" data-sw="Chagua Mpango">
+                            Choose Plan
+                        </a>
+                    </div>
+                    
+                    <div class="pricing-plan fade-in-delay-2">
+                        <h3 data-en="Enterprise" data-sw="Biashara">Enterprise</h3>
+                        <div class="plan-price">$1,999<span>/mo</span></div>
+                        <p data-en="Complete solutions for established businesses"
+                           data-sw="Suluhisho kamili kwa biashara zilizokua">
+                            Complete solutions for established businesses
+                        </p>
+                        
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> <span data-en="Everything in Growth" data-sw="Kila kitu katika Ukuaji">Everything in Growth</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="Dedicated Account Manager" data-sw="Meneja wa Akaunti Aliyeteuliwa">Dedicated Account Manager</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="Custom Campaign Development" data-sw="Uundaji wa Kampeni Maalum">Custom Campaign Development</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="24/7 Priority Support" data-sw="Usaidizi wa Kipaumbele 24/7">24/7 Priority Support</span></li>
+                            <li><i class="fas fa-check"></i> <span data-en="Competitor Analysis" data-sw="Uchambuzi wa Mpinzani">Competitor Analysis</span></li>
+                        </ul>
+                        
+                        <a href="contact.html" class="btn btn-outline" data-en="Contact Sales" data-sw="Wasiliana na Mauzo">
+                            Contact Sales
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Studies -->
+            <div class="case-studies">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title fade-in" data-en="Success Stories" data-sw="Hadithi za Mafanikio">
+                            Success Stories
+                        </h2>
+                        <p class="section-subtitle fade-in" data-en="See how we've transformed businesses with digital marketing"
+                           data-sw="Angalia jinsi tumebadilisha biashara na uuzaji mtandaoni">
+                            See how we've transformed businesses with digital marketing
+                        </p>
+                    </div>
+                    
+                    <div class="case-study-grid">
+                        <div class="case-study-card fade-in">
+                            <div class="case-study-image">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="E-commerce Success Story">
+                            </div>
+                            <div class="case-study-content">
+                                <h3 data-en="Tanzanian Fashion Brand" data-sw="Chapa ya Mitindo ya Tanzania">
+                                    Tanzanian Fashion Brand
+                                </h3>
+                                <p data-en="Increased online sales by 240% in 4 months through targeted digital campaigns."
+                                   data-sw="Kuongezeka kwa mauzo mtandaoni kwa 240% kwa miezi 4 kupitia kampeni za digital zilizolengwa.">
+                                    Increased online sales by 240% in 4 months.
+                                </p>
+                                
+                                <div class="case-study-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">240%</span>
+                                        <span class="stat-label" data-en="Sales Increase" data-sw="Ongezeko la Mauzo">Sales Increase</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">4</span>
+                                        <span class="stat-label" data-en="Months" data-sw="Miezi">Months</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">15K</span>
+                                        <span class="stat-label" data-en="New Customers" data-sw="Wateja Wapya">New Customers</span>
+                                    </div>
+                                </div>
+                                
+                                <a href="portfolio.html#fashion-case" class="btn btn-small" data-en="Read Full Case" data-sw="Soma Kesikamili">
+                                    Read Full Case
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="case-study-card fade-in-delay-1">
+                            <div class="case-study-image">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Tourism Business Growth">
+                            </div>
+                            <div class="case-study-content">
+                                <h3 data-en="Safari Tour Operator" data-sw="Mwendeshaji wa Ziara ya Safari">
+                                    Safari Tour Operator
+                                </h3>
+                                <p data-en="Achieved 180% increase in bookings through strategic digital advertising."
+                                   data-sw="Kufikia ongezeko la 180% katika uhifadhi kupitia utangazaji wa kidijitali wa kimkakati.">
+                                    Achieved 180% increase in bookings.
+                                </p>
+                                
+                                <div class="case-study-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">180%</span>
+                                        <span class="stat-label" data-en="Booking Growth" data-sw="Ukuaji wa Uhifadhi">Booking Growth</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">6</span>
+                                        <span class="stat-label" data-en="Months" data-sw="Miezi">Months</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">45%</span>
+                                        <span class="stat-label" data-en="ROI" data-sw="ROI">ROI</span>
+                                    </div>
+                                </div>
+                                
+                                <a href="portfolio.html#tourism-case" class="btn btn-small" data-en="Read Full Case" data-sw="Soma Kesikamili">
+                                    Read Full Case
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ -->
+            <div class="faq-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title fade-in" data-en="Frequently Asked Questions" data-sw="Maswali Yanayoulizwa Mara kwa Mara">
+                            Frequently Asked Questions
+                        </h2>
+                        <p class="section-subtitle fade-in" data-en="Find answers to common questions about our digital marketing services"
+                           data-sw="Pata majibu ya maswali ya kawaida kuhusu huduma zetu za uuzaji mtandaoni">
+                            Find answers to common questions
+                        </p>
+                    </div>
+                    
+                    <div class="faq-container">
+                        <div class="faq-item fade-in">
+                            <div class="faq-question">
+                                <span data-en="How quickly will I see results from digital marketing?" 
+                                      data-sw="Kwa kasi gami nitaona matokeo kutoka kwa uuzaji mtandaoni?">
+                                    How quickly will I see results from digital marketing?
+                                </span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p data-en="Most clients see initial improvements within 30-60 days, with significant growth occurring in months 3-6 as campaigns optimize and gain traction. We provide weekly progress reports to keep you informed."
+                                   data-sw="Wateja wengi wanaona maboresho ya awali ndani ya siku 30-60, na ukuaji mkubwa unatokea kwenye miezi 3-6 wakati kampeni zinaboreshwa na kupata mafanikio. Tunatoa ripoti za maendeleo ya kila wiki kukukumbusha.">
+                                    Most clients see initial improvements within 30-60 days.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item fade-in-delay-1">
+                            <div class="faq-question">
+                                <span data-en="What makes Ad Pollex different from other agencies?"
+                                      data-sw="Ni nini kinachofanya Ad Pollex kuwa tofauti na mashirika mengine?">
+                                    What makes Ad Pollex different from other agencies?
+                                </span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p data-en="Our deep understanding of the Tanzanian market, combined with data-driven strategies and 8+ years of local experience, allows us to create campaigns that truly resonate with Tanzanian consumers. We focus on measurable ROI and transparent reporting."
+                                   data-sw="Uelewa wetu wa kina wa soko la Tanzania, pamoja na mikakati inayotokana na data na uzoefu wa zaidi ya miaka 8 wa ndani, inaturuhusu kuunda kampeni ambazo zinavutia watumiaji wa Tanzania. Tunazingatia ROI inayoweza kupimika na ufafanuzi wa uwazi.">
+                                    Deep understanding of the Tanzanian market combined with data-driven strategies.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Services (Collapsed for brevity) -->
+    <!-- Branding Service -->
+    <section class="service-detail" id="branding" style="display: none;">
+        <!-- Similar structure to digital marketing section -->
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-en="Ready to Transform Your Digital Marketing?" data-sw="Uko Tayari Kubadilisha Uuzaji Wako wa Digital?">
+                    Ready to Transform Your Digital Marketing?
+                </h2>
+                <p data-en="Let's create a custom strategy that drives real results for your business."
+                   data-sw="Tubuni mkakati maalum unaoleta matokeo halisi kwa biashara yako.">
+                    Let's create a custom strategy that drives real results for your business.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-lg" data-en="Get Free Strategy Session" data-sw="Pata Kikao cha Mkakati Bure">
+                        Get Free Strategy Session <i class="fas fa-calendar-check"></i>
+                    </a>
+                    <a href="tel:+255684320325" class="btn btn-outline btn-lg" data-en="Call Us Now" data-sw="Tuite Sasa">
+                        <i class="fas fa-phone-alt"></i> +255 684 320 325
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="logo-text">
+                            <h3>Ad <span class="highlight">Pollex</span></h3>
+                            <p class="footer-tagline" data-en="Advertising & Digital Marketing" 
+                               data-sw="Utangazaji na Uuzaji Mtandaoni">
+                                Advertising & Digital Marketing
+                            </p>
+                        </div>
+                    </a>
+                    <p class="footer-description" data-en="Full-service advertising and digital marketing agency in Tanzania, helping businesses grow since 2016."
+                       data-sw="Kampuni ya huduma kamili ya utangazaji na uuzaji mtandaoni nchini Tanzania, inasaidia biashara kukua tangu 2016.">
+                        Full-service advertising and digital marketing agency in Tanzania.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 data-en="Quick Links" data-sw="Viungo vya Haraka">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" data-en="Home" data-sw="Nyumbani">Home</a></li>
+                        <li><a href="services.html" data-en="Services" data-sw="Huduma">Services</a></li>
+                        <li><a href="portfolio.html" data-en="Portfolio" data-sw="Portfolio">Portfolio</a></li>
+                        <li><a href="about.html" data-en="About Us" data-sw="Kuhusu Sisi">About Us</a></li>
+                        <li><a href="contact.html" data-en="Contact" data-sw="Mawasiliano">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 data-en="Our Services" data-sw="Huduma Zetu">Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#digital-marketing" data-en="Digital Marketing" data-sw="Uuzaji Mtandaoni">Digital Marketing</a></li>
+                        <li><a href="services.html#branding" data-en="Brand Strategy" data-sw="Mkakati wa Chapa">Brand Strategy</a></li>
+                        <li><a href="services.html#seo" data-en="SEO & Website" data-sw="SEO na Tovuti">SEO & Website</a></li>
+                        <li><a href="services.html#social-media" data-en="Social Media" data-sw="Mitandao ya Kijamii">Social Media</a></li>
+                        <li><a href="services.html#advertising" data-en="Advertising" data-sw="Utangazaji">Advertising</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 data-en="Contact Us" data-sw="Wasiliana Nasi">Contact Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> <span data-en="Mwinyijuma Road, Kinondoni, Dar es Salaam" data-sw="Barabara ya Mwinyijuma, Kinondoni, Dar es Salaam">Mwinyijuma Road, Kinondoni, Dar es Salaam</span></p>
+                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+255684320325">+255 684 320 325</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:adpollex@gmail.com">adpollex@gmail.com</a></p>
+                        <p><i class="fas fa-clock"></i> <span data-en="Mon - Fri: 8:00 AM - 6:00 PM" data-sw="Jumatatu - Ijumaa: 8:00 asubuhi - 6:00 jioni">Mon - Fri: 8:00 AM - 6:00 PM</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p data-en="&copy; 2024 Ad Pollex. All rights reserved." data-sw="&copy; 2024 Ad Pollex. Haki zote zimehifadhiwa.">
+                        &copy; 2024 Ad Pollex. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#" data-en="Privacy Policy" data-sw="Sera ya Faragha">Privacy Policy</a>
+                        <a href="#" data-en="Terms of Service" data-sw="Sheria za Huduma">Terms of Service</a>
+                        <a href="#" data-en="Cookie Policy" data-sw="Sera ya Kuki">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float & Back to Top -->
+    <a href="https://wa.me/255684320325" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip" data-en="Chat with us!" data-sw="Zungumza nasi!">Chat with us!</span>
+    </a>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Include all JavaScript from index.html with additional functionality
+        
+        // Additional Services Page JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ toggle functionality
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const toggle = this.querySelector('.faq-toggle');
+                    
+                    if (answer.classList.contains('active')) {
+                        answer.classList.remove('active');
+                        toggle.textContent = '+';
+                    } else {
+                        document.querySelectorAll('.faq-answer').forEach(ans => {
+                            ans.classList.remove('active');
+                            ans.previousElementSibling.querySelector('.faq-toggle').textContent = '+';
+                        });
+                        answer.classList.add('active');
+                        toggle.textContent = '−';
+                    }
+                });
+            });
+            
+            // Service navigation smooth scroll
+            document.querySelectorAll('.service-nav-links a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    
+                    // Update active state
+                    document.querySelectorAll('.service-nav-links a').forEach(a => {
+                        a.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Scroll to section
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Pricing plan hover effects
+            document.querySelectorAll('.pricing-plan').forEach(plan => {
+                plan.addEventListener('mouseenter', function() {
+                    this.style.transform = this.classList.contains('popular') 
+                        ? 'scale(1.05) translateY(-15px)' 
+                        : 'translateY(-15px)';
+                });
+                
+                plan.addEventListener('mouseleave', function() {
+                    this.style.transform = this.classList.contains('popular') 
+                        ? 'scale(1.05)' 
+                        : 'translateY(0)';
+                });
+            });
+            
+            // Intersection Observer for animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.fade-in, .fade-in-delay-1, .fade-in-delay-2').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Auto-hide mobile menu on scroll
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                }
+                lastScrollTop = scrollTop;
+            });
+        });
+    </script>
+</body>
+</html>
