@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ad Pollex | Honestly Good Marketing</title>
+    <title>Ad Pollex</title>
     <style>
-        /* Reset everything */
+        /* Absolute minimalism */
         * {
             margin: 0;
             padding: 0;
@@ -13,25 +13,33 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fefefe;
-            overflow-x: hidden;
+            color: #000;
+            background: #fff;
+            font-size: 16px;
+            font-weight: 400;
         }
 
-        /* Simple, clean header */
+        /* Header - invisible until needed */
         header {
-            padding: 1.5rem 2rem;
-            background: white;
             position: fixed;
-            width: 100%;
             top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
             z-index: 100;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid #eee;
         }
 
-        .header-container {
+        .header-content {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
@@ -40,556 +48,431 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2563eb;
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: -0.5px;
             text-decoration: none;
+            color: #000;
         }
 
-        .logo span {
-            font-weight: 300;
-            color: #666;
+        nav {
+            display: flex;
+            gap: 40px;
         }
 
         nav a {
-            margin-left: 2rem;
             text-decoration: none;
-            color: #555;
-            font-weight: 500;
-            transition: color 0.3s;
+            color: #666;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #2563eb;
+            color: #000;
         }
 
-        /* Hero - Simple but powerful */
+        /* Hero - just text */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 6rem 2rem 2rem;
-            background: linear-gradient(135deg, #f0f9ff 0%, #fefefe 100%);
+            justify-content: center;
+            padding: 0 20px;
         }
 
         .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
+            max-width: 800px;
+            text-align: center;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-size: 48px;
+            font-weight: 400;
             line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: #1e293b;
-        }
-
-        .hero h1 .highlight {
-            color: #2563eb;
-            position: relative;
-        }
-
-        .hero h1 .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: rgba(37, 99, 235, 0.1);
-            z-index: -1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: #64748b;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
             max-width: 600px;
-            margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .cta-button {
+        /* Simple button */
+        .btn {
             display: inline-block;
-            background: #2563eb;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
+            padding: 12px 32px;
+            border: 1px solid #000;
+            color: #000;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: transparent;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+        .btn:hover {
+            background: #000;
+            color: #fff;
         }
 
-        /* Services - Clean cards */
-        .services {
-            padding: 6rem 2rem;
-            background: white;
-        }
-
-        .services h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #1e293b;
-        }
-
-        .services p.subtitle {
-            text-align: center;
-            color: #64748b;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* Section styling */
+        .section {
+            padding: 100px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .service-card {
-            padding: 2.5rem;
-            border-radius: 12px;
-            background: #f8fafc;
-            transition: transform 0.3s, box-shadow 0.3s;
+        .section-title {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            text-align: center;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: #dbeafe;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: #2563eb;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #1e293b;
-        }
-
-        /* Portfolio - Clean grid */
-        .portfolio {
-            padding: 6rem 2rem;
-            background: #f8fafc;
-        }
-
-        .portfolio-grid {
+        /* Services - minimal grid */
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 3rem auto 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service {
+            padding: 30px;
+            border: 1px solid #eee;
+        }
+
+        .service h3 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .service p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Portfolio - simple list */
+        .portfolio-list {
+            list-style: none;
         }
 
         .portfolio-item {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .portfolio-content {
-            padding: 2rem;
-        }
-
-        .portfolio-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* About - Simple and honest */
-        .about {
-            padding: 6rem 2rem;
-            background: white;
-        }
-
-        .about-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #1e293b;
+        .portfolio-item:last-child {
+            border-bottom: none;
         }
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+        .portfolio-item h3 {
+            font-size: 18px;
+            font-weight: 400;
         }
 
-        .stat h3 {
-            font-size: 2.5rem;
-            color: #2563eb;
-            margin-bottom: 0.5rem;
+        .portfolio-item p {
+            color: #666;
+            font-size: 14px;
         }
 
-        /* Contact - Simple form */
-        .contact {
-            padding: 6rem 2rem;
-            background: #f8fafc;
-        }
-
-        .contact-form {
+        /* About */
+        .about-content {
             max-width: 600px;
-            margin: 3rem auto 0;
-            background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* Contact form - ultra simple */
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #666;
         }
 
         .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
         .form-group textarea {
-            height: 150px;
-            resize: vertical;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            font-family: inherit;
+            background: transparent;
         }
 
-        /* Footer - Clean */
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #000;
+        }
+
+        /* Footer */
         footer {
-            background: #1e293b;
-            color: white;
-            padding: 4rem 2rem;
+            padding: 60px 20px;
+            border-top: 1px solid #eee;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
         }
 
         .footer-col h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .footer-col p,
         .footer-col a {
-            color: #cbd5e1;
-            margin-bottom: 0.8rem;
-            display: block;
+            color: #666;
             text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: block;
         }
 
         .footer-col a:hover {
-            color: white;
+            color: #000;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 13px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 36px;
             }
             
-            .about-content {
-                grid-template-columns: 1fr;
+            .section-title {
+                font-size: 28px;
             }
             
             .footer-content {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
             
             nav {
                 display: none;
             }
+            
+            .portfolio-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
         }
 
-        /* Animation for scroll */
+        /* Animation classes */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.6s, transform 0.6s;
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Simple language toggle */
-        .language-toggle {
-            display: flex;
-            gap: 0.5rem;
-            margin-left: 2rem;
-        }
-
-        .language-toggle button {
-            background: none;
-            border: none;
-            color: #555;
-            cursor: pointer;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        .language-toggle button.active {
-            background: #2563eb;
-            color: white;
-        }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="header-container">
-            <a href="#" class="logo">Ad<span>Pollex</span></a>
+        <div class="header-content">
+            <a href="#" class="logo">Ad Pollex</a>
             <nav>
-                <a href="#home">Home</a>
                 <a href="#services">Services</a>
-                <a href="#portfolio">Work</a>
+                <a href="#work">Work</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
-                <div class="language-toggle">
-                    <button class="active">EN</button>
-                    <button>SW</button>
-                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="hero-content">
-            <h1 class="fade-in">Good marketing shouldn't be complicated.<br>
-                <span class="highlight">We make it simple.</span>
-            </h1>
-            <p class="fade-in">We help Tanzanian businesses grow with honest, effective digital marketing that actually works. No buzzwords, just results.</p>
-            <a href="#contact" class="cta-button fade-in">Let's talk about your business</a>
+            <h1 class="fade-in">Digital marketing that works.</h1>
+            <p class="fade-in">For businesses in Tanzania that want real results, not just promises.</p>
+            <a href="#contact" class="btn fade-in">Start a conversation</a>
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="services">
-        <h2 class="fade-in">What we do</h2>
-        <p class="subtitle fade-in">Simple solutions for complex challenges</p>
-        
+    <section id="services" class="section">
+        <h2 class="section-title fade-in">What we do</h2>
         <div class="services-grid">
-            <div class="service-card fade-in">
-                <div class="service-icon">📈</div>
-                <h3>Digital Marketing</h3>
-                <p>Strategic campaigns that reach the right people at the right time. We focus on what matters: getting you customers.</p>
+            <div class="service fade-in">
+                <h3>Digital Strategy</h3>
+                <p>Creating effective online campaigns that reach your target audience and deliver measurable results.</p>
             </div>
-            
-            <div class="service-card fade-in">
-                <div class="service-icon">🎨</div>
-                <h3>Brand Strategy</h3>
-                <p>Helping your business stand out in a crowded market. We build brands that people remember and trust.</p>
+            <div class="service fade-in">
+                <h3>Brand Development</h3>
+                <p>Building strong, memorable brands that connect with customers and stand out in the market.</p>
             </div>
-            
-            <div class="service-card fade-in">
-                <div class="service-icon">🔍</div>
-                <h3>SEO & Websites</h3>
-                <p>Making sure people can find you online. We build fast, beautiful websites that convert visitors into customers.</p>
+            <div class="service fade-in">
+                <h3>Website & SEO</h3>
+                <p>Designing fast, beautiful websites that rank well and convert visitors into customers.</p>
             </div>
-            
-            <div class="service-card fade-in">
-                <div class="service-icon">💬</div>
+            <div class="service fade-in">
                 <h3>Social Media</h3>
-                <p>Building real connections with your audience. We help you tell your story in a way that resonates.</p>
+                <p>Managing your online presence to build genuine relationships with your audience.</p>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
-        <h2 class="fade-in">Our work speaks for itself</h2>
-        <p class="subtitle fade-in">Real results for real businesses in Tanzania</p>
-        
-        <div class="portfolio-grid">
+    <section id="work" class="section" style="background: #f9f9f9;">
+        <h2 class="section-title fade-in">Recent work</h2>
+        <div class="portfolio-list">
             <div class="portfolio-item fade-in">
-                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fashion Retail">
-                <div class="portfolio-content">
-                    <h3>Tanzanian Fashion Retailer</h3>
-                    <p>Increased online sales by 240% in 4 months through targeted social media campaigns.</p>
+                <div>
+                    <h3>Tanzanian Retail Brand</h3>
+                    <p>Increased online sales by 300% in 6 months</p>
                 </div>
+                <a href="#" class="btn">View case</a>
             </div>
-            
             <div class="portfolio-item fade-in">
-                <img src="https://images.unsplash.com/photo-1551836026-d5c2c4af08f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tourism">
-                <div class="portfolio-content">
-                    <h3>Safari Tour Company</h3>
-                    <p>Grew bookings by 180% with a complete digital strategy overhaul.</p>
+                <div>
+                    <h3>Safari Company</h3>
+                    <p>180% growth in bookings through digital transformation</p>
                 </div>
+                <a href="#" class="btn">View case</a>
             </div>
-            
             <div class="portfolio-item fade-in">
-                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Finance">
-                <div class="portfolio-content">
-                    <h3>Fintech Startup</h3>
-                    <p>Achieved 50,000+ app downloads in 3 months with strategic digital advertising.</p>
+                <div>
+                    <h3>Fashion Label</h3>
+                    <p>Brand strategy leading to national recognition</p>
                 </div>
+                <a href="#" class="btn">View case</a>
             </div>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="about">
+    <section id="about" class="section">
         <div class="about-content">
-            <div class="about-text">
-                <h2 class="fade-in">We're not just another agency</h2>
-                <p class="fade-in">We started in 2016 with a simple idea: marketing should be honest, effective, and actually help businesses grow.</p>
-                <p class="fade-in">Today, we're a team of passionate marketers who understand the Tanzanian market. We speak your language, understand your challenges, and know how to help you succeed.</p>
-                
-                <div class="stats">
-                    <div class="stat fade-in">
-                        <h3>8+</h3>
-                        <p>Years experience</p>
+            <h2 class="section-title fade-in">About us</h2>
+            <p class="fade-in">We started in 2016 with a simple goal: help Tanzanian businesses succeed online. No jargon, no empty promises—just honest work that gets results.</p>
+            <p class="fade-in">Today, we're a small team of specialists who understand both digital marketing and the Tanzanian market. We speak your language and know how to help you grow.</p>
+            <div style="margin-top: 40px;">
+                <div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 40px;">
+                    <div class="fade-in">
+                        <div style="font-size: 32px; font-weight: 400;">8+</div>
+                        <div style="color: #666; font-size: 14px;">Years</div>
                     </div>
-                    <div class="stat fade-in">
-                        <h3>200+</h3>
-                        <p>Projects completed</p>
+                    <div class="fade-in">
+                        <div style="font-size: 32px; font-weight: 400;">200+</div>
+                        <div style="color: #666; font-size: 14px;">Projects</div>
                     </div>
-                    <div class="stat fade-in">
-                        <h3>50+</h3>
-                        <p>Happy clients</p>
+                    <div class="fade-in">
+                        <div style="font-size: 32px; font-weight: 400;">50+</div>
+                        <div style="color: #666; font-size: 14px;">Clients</div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="about-image fade-in">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Our Team" style="width:100%; border-radius:12px;">
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <h2 class="fade-in" style="text-align:center;">Ready to grow your business?</h2>
-        <p class="subtitle fade-in" style="text-align:center;">Let's have a real conversation about your goals</p>
-        
-        <div class="contact-form fade-in">
-            <form id="contactForm">
+    <section id="contact" class="section" style="background: #f9f9f9;">
+        <h2 class="section-title fade-in">Get in touch</h2>
+        <div class="contact-form">
+            <form class="fade-in">
                 <div class="form-group">
-                    <label for="name">Your name</label>
+                    <label for="name">Name</label>
                     <input type="text" id="name" required>
                 </div>
-                
                 <div class="form-group">
-                    <label for="email">Email address</label>
+                    <label for="email">Email</label>
                     <input type="email" id="email" required>
                 </div>
-                
                 <div class="form-group">
-                    <label for="phone">Phone number</label>
-                    <input type="tel" id="phone">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" required></textarea>
                 </div>
-                
-                <div class="form-group">
-                    <label for="service">What do you need help with?</label>
-                    <select id="service">
-                        <option value="">Select a service</option>
-                        <option value="marketing">Digital Marketing</option>
-                        <option value="branding">Brand Strategy</option>
-                        <option value="website">Website & SEO</option>
-                        <option value="social">Social Media</option>
-                        <option value="all">Everything</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Tell us about your business</label>
-                    <textarea id="message" required></textarea>
-                </div>
-                
-                <button type="submit" class="cta-button" style="width:100%;">Send message</button>
+                <button type="submit" class="btn" style="width: 100%;">Send message</button>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-col">
                 <h4>Ad Pollex</h4>
-                <p>Honest marketing for Tanzanian businesses since 2016.</p>
+                <p>Digital marketing agency based in Dar es Salaam, Tanzania. Helping businesses grow since 2016.</p>
             </div>
-            
+            <div class="footer-col">
+                <h4>Services</h4>
+                <a href="#">Digital Strategy</a>
+                <a href="#">Brand Development</a>
+                <a href="#">Website & SEO</a>
+                <a href="#">Social Media</a>
+            </div>
             <div class="footer-col">
                 <h4>Contact</h4>
-                <p>+255 684 320 325</p>
-                <p>adpollex@gmail.com</p>
-                <p>Dar es Salaam, Tanzania</p>
+                <a href="tel:+255684320325">+255 684 320 325</a>
+                <a href="mailto:adpollex@gmail.com">adpollex@gmail.com</a>
+                <p>Dar es Salaam</p>
             </div>
-            
-            <div class="footer-col">
-                <h4>Quick links</h4>
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#portfolio">Work</a>
-                <a href="#about">About</a>
-            </div>
-            
             <div class="footer-col">
                 <h4>Connect</h4>
-                <a href="#">Facebook</a>
                 <a href="#">Instagram</a>
                 <a href="#">LinkedIn</a>
                 <a href="#">Twitter</a>
             </div>
         </div>
+        <div class="copyright">
+            &copy; 2024 Ad Pollex. All rights reserved.
+        </div>
     </footer>
 
     <script>
-        // Simple scroll animation
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animation
         const fadeElements = document.querySelectorAll('.fade-in');
         
         const observer = new IntersectionObserver((entries) => {
@@ -598,59 +481,46 @@
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.1 });
-        
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
         fadeElements.forEach(el => observer.observe(el));
-        
-        // Language toggle
-        const langButtons = document.querySelectorAll('.language-toggle button');
-        langButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                langButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                // Simple language switching (in a real site, you'd have full translation)
-                if (btn.textContent === 'SW') {
-                    document.querySelector('.hero h1').innerHTML = 'Uuzaji mzuri haupaswi kuwa ngumu.<br><span class="highlight">Tunaufanya kuwa rahisi.</span>';
-                    document.querySelector('.hero p').textContent = 'Tunasaidia biashara za Tanzania kukua na uuzaji mtandaoni wa kweli, unaofanya kazi. Hakuna maneno ya kushangaza, tu matokeo.';
-                    document.querySelector('.cta-button').textContent = 'Tuzungumze kuhusu biashara yako';
-                } else {
-                    document.querySelector('.hero h1').innerHTML = 'Good marketing shouldn\'t be complicated.<br><span class="highlight">We make it simple.</span>';
-                    document.querySelector('.hero p').textContent = 'We help Tanzanian businesses grow with honest, effective digital marketing that actually works. No buzzwords, just results.';
-                    document.querySelector('.cta-button').textContent = 'Let\'s talk about your business';
-                }
-            });
-        });
-        
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you! We\'ll get back to you within 24 hours.');
-            e.target.reset();
-        });
-        
-        // Smooth scroll for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                if (targetId === '#') return;
                 
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
-        
-        // Simple header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            } else {
-                header.style.boxShadow = 'none';
-            }
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you. We\'ll be in touch soon.');
+            e.target.reset();
+        });
+
+        // Simple hover effect for service cards
+        document.querySelectorAll('.service').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = '#000';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = '#eee';
+            });
         });
     </script>
 </body>
