@@ -85,6 +85,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            text-decoration: none;
+            color: white;
         }
 
         .logo-dot {
@@ -97,7 +99,8 @@
 
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
+            align-items: center;
         }
 
         .nav-link {
@@ -129,12 +132,47 @@
             width: 100%;
         }
 
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 2rem;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--neon-blue);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .lang-btn.active {
+            background: var(--neon-blue);
+            color: var(--dark-bg);
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: rgba(0, 243, 255, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 0 5%;
+            padding: 8rem 5% 5rem;
             position: relative;
             overflow: hidden;
         }
@@ -220,9 +258,26 @@
             animation: dataFlow 3s linear infinite;
         }
 
-        /* Services */
+        /* Services Page */
+        .page-hero {
+            padding: 8rem 5% 3rem;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
         .services {
-            padding: 8rem 5%;
+            padding: 5rem 5%;
         }
 
         .section-title {
@@ -275,12 +330,12 @@
         .service-desc {
             color: var(--text-secondary);
             line-height: 1.6;
+            margin-bottom: 2rem;
         }
 
-        /* Dashboard Preview */
+        /* Analytics Page */
         .dashboard-preview {
-            padding: 8rem 5%;
-            background: rgba(0, 0, 0, 0.3);
+            padding: 5rem 5%;
         }
 
         .dashboard-container {
@@ -317,9 +372,17 @@
             letter-spacing: 1px;
         }
 
-        /* AI Terminal */
+        .chart-container {
+            margin-top: 3rem;
+            height: 400px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* AI Terminal Page */
         .terminal-section {
-            padding: 8rem 5%;
+            padding: 5rem 5%;
             position: relative;
         }
 
@@ -360,15 +423,107 @@
             margin-left: 5px;
         }
 
-        /* Contact */
-        .contact {
-            padding: 8rem 5%;
+        /* Portfolio Page */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 5rem 5%;
+        }
+
+        .portfolio-card {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            background: var(--card-bg);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-card:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        /* About Page */
+        .about-section {
+            padding: 5rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .team-member {
             text-align: center;
         }
 
-        .contact-form {
-            max-width: 600px;
-            margin: 3rem auto;
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        /* Contact Page */
+        .contact-section {
+            padding: 5rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            padding: 2rem;
+            background: var(--card-bg);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .form-group {
@@ -409,34 +564,95 @@
             color: var(--dark-bg);
         }
 
+        /* Blog Page */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 5rem 5%;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            overflow: hidden;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-date {
+            color: var(--neon-blue);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
         /* Footer */
         footer {
             padding: 4rem 5%;
             background: #000;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 5rem;
         }
 
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-blue);
+        }
+
         .social-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
         .social-link {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--neon-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-blue);
+            text-decoration: none;
             transition: var(--transition);
         }
 
         .social-link:hover {
-            color: var(--neon-blue);
+            background: var(--neon-blue);
+            color: var(--dark-bg);
+        }
+
+        /* Page Content Container */
+        .page-content {
+            padding-top: 6rem;
+            min-height: 80vh;
         }
 
         /* Animations */
@@ -462,21 +678,6 @@
             100% { transform: translateY(100vh); opacity: 0; }
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-grid { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-title { font-size: 3.5rem; }
-        }
-
-        @media (max-width: 768px) {
-            .services-grid { grid-template-columns: 1fr; }
-            .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
-            .nav-links { display: none; }
-            .hero-title { font-size: 2.8rem; }
-            .section-title { font-size: 2.5rem; }
-        }
-
         /* Scan Line Effect */
         .scan-line {
             position: fixed;
@@ -497,320 +698,599 @@
             100% { top: 100%; opacity: 0; }
         }
 
-        /* Glitch Effect */
-        .glitch {
-            position: relative;
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid,
+            .portfolio-grid,
+            .blog-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .page-title {
+                font-size: 3rem;
+            }
         }
 
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
+        @media (max-width: 768px) {
+            .services-grid,
+            .portfolio-grid,
+            .blog-grid,
+            .team-grid,
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark-bg);
+                flex-direction: column;
+                padding: 2rem;
+                border-top: 1px solid rgba(0, 243, 255, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .language-switcher {
+                margin-left: 0;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Page Transitions */
+        .page-transition {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: var(--dark-bg);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-100%);
         }
 
-        .glitch::before {
-            left: 2px;
-            text-shadow: -2px 0 var(--cyber-pink);
-            animation: glitch-1 2s infinite linear alternate-reverse;
+        .loading-text {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 2rem;
+            color: var(--neon-blue);
         }
 
-        .glitch::after {
-            left: -2px;
-            text-shadow: 2px 0 var(--neon-blue);
-            animation: glitch-2 3s infinite linear alternate-reverse;
+        /* Multilingual Content */
+        .lang-content {
+            display: none;
         }
-
-        @keyframes glitch-1 {
-            0% { clip: rect(44px, 450px, 56px, 0); }
-            100% { clip: rect(12px, 450px, 34px, 0); }
-        }
-
-        @keyframes glitch-2 {
-            0% { clip: rect(44px, 450px, 56px, 0); }
-            100% { clip: rect(22px, 450px, 78px, 0); }
+        
+        .lang-content.active {
+            display: block;
         }
     </style>
 </head>
 <body>
     <!-- Scan Line -->
     <div class="scan-line"></div>
+    
+    <!-- Page Transition -->
+    <div class="page-transition" id="pageTransition">
+        <div class="loading-text">INITIALIZING NEURALINK...</div>
+    </div>
 
     <!-- Header -->
     <header>
-        <div class="logo">
+        <a href="index.html" class="logo">
             NEURALINK
             <div class="logo-dot"></div>
-        </div>
-        <nav class="nav-links">
-            <a href="#services" class="nav-link">SERVICES</a>
-            <a href="#dashboard" class="nav-link">ANALYTICS</a>
-            <a href="#terminal" class="nav-link">AI TERMINAL</a>
-            <a href="#contact" class="nav-link">CONTACT</a>
-            <span class="nav-link matrix-text">[ONLINE]</span>
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="services.html" class="nav-link">SERVICES</a>
+            <a href="analytics.html" class="nav-link">ANALYTICS</a>
+            <a href="ai-terminal.html" class="nav-link">AI TERMINAL</a>
+            <a href="portfolio.html" class="nav-link">PORTFOLIO</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+            
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="sw">SW</button>
+            </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="data-flow" id="dataFlow"></div>
-        <div class="hero-grid">
-            <div class="hero-content">
-                <div class="hero-badge cyber-border" style="padding: 0.5rem 1.5rem; display: inline-block; margin-bottom: 2rem;">
-                    <span class="matrix-text">DIGITAL EVOLUTION v2.0</span>
+    <!-- Main Content -->
+    <main class="page-content">
+        <!-- HOME PAGE CONTENT -->
+        <section id="homePage" class="lang-content active" data-page="home">
+            <div class="hero">
+                <div class="data-flow" id="dataFlow"></div>
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-badge cyber-border" style="padding: 0.5rem 1.5rem; display: inline-block; margin-bottom: 2rem;">
+                            <span class="matrix-text">DIGITAL EVOLUTION v2.0</span>
+                        </div>
+                        <h1 class="hero-title">
+                            <span class="lang-text" data-en="SYNTHESIZE YOUR" data-sw="UNDA KITAMBULISHO CHAKO CHA">SYNTHESIZE YOUR</span><br>
+                            <span class="matrix-text lang-text" data-en="DIGITAL DNA" data-sw="KIDIJITALI">DIGITAL DNA</span>
+                        </h1>
+                        <p class="hero-subtitle lang-text" 
+                           data-en="We architect premium digital ecosystems that transform data into dominance. Neural networks, AI integration, and quantum marketing strategies for the future-forward enterprise."
+                           data-sw="Tunabuni mifumo ya hali ya juu ya kidijitali ambayo hubadilisha data kuwa uongozi. Mitandao ya neva, ushirikiano wa AI, na mikakati ya uuzaji ya quantum kwa biashara ya mbele ya wakati ujao.">
+                            We architect premium digital ecosystems that transform data into dominance.
+                        </p>
+                        <a href="contact.html" class="cta-button">
+                            <span class="lang-text" data-en="INITIATE CONNECTION" data-sw="ANZA MUUNGANO"></span>
+                            <i class="fas fa-bolt"></i>
+                        </a>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-cube cube-1"></div>
+                        <div class="floating-cube cube-2"></div>
+                        <div class="floating-cube cube-3"></div>
+                        <div class="cyber-border" style="width: 100%; height: 100%;"></div>
+                    </div>
                 </div>
-                <h1 class="hero-title glitch" data-text="SYNTHESIZE YOUR DIGITAL DNA">
-                    SYNTHESIZE YOUR<br>
-                    <span class="matrix-text">DIGITAL DNA</span>
+            </div>
+        </section>
+
+        <!-- SERVICES PAGE CONTENT -->
+        <section id="servicesPage" class="lang-content" data-page="services" style="display: none;">
+            <div class="page-hero">
+                <h1 class="page-title">
+                    <span class="matrix-text lang-text" data-en="CORE" data-sw">MSINGI"></span> 
+                    <span class="lang-text" data-en="SERVICES" data-sw="HUDUMA"></span>
                 </h1>
-                <p class="hero-subtitle">
-                    We architect premium digital ecosystems that transform data into dominance. 
-                    Neural networks, AI integration, and quantum marketing strategies for the 
-                    future-forward enterprise.
+                <p class="page-subtitle lang-text"
+                   data-en="Premium digital transformation services powered by neural networks and quantum computing"
+                   data-sw="Huduma za hali ya juu za mageuzi ya kidijitali zinazotumia mitandao ya neva na kompyuta za quantum">
+                    Premium digital transformation services powered by neural networks and quantum computing
                 </p>
-                <a href="#contact" class="cta-button">
-                    INITIATE CONNECTION
-                    <i class="fas fa-bolt"></i>
-                </a>
-            </div>
-            <div class="hero-visual">
-                <div class="floating-cube cube-1"></div>
-                <div class="floating-cube cube-2"></div>
-                <div class="floating-cube cube-3"></div>
-                <div class="cyber-border" style="width: 100%; height: 100%;"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="services">
-        <h2 class="section-title"><span class="matrix-text">CORE</span> SERVICES</h2>
-        <div class="services-grid">
-            <div class="service-card cyber-border">
-                <div class="service-icon">
-                    <i class="fas fa-brain"></i>
-                </div>
-                <h3 class="service-title">NEURAL MARKETING</h3>
-                <p class="service-desc">
-                    AI-driven predictive analytics that anticipates consumer behavior 
-                    92.7% faster than traditional methods.
-                </p>
-                <div style="margin-top: 2rem; font-size: 0.8rem; color: var(--neon-blue);">
-                    <i class="fas fa-microchip"></i> REAL-TIME PROCESSING
-                </div>
             </div>
 
-            <div class="service-card cyber-border">
-                <div class="service-icon">
-                    <i class="fas fa-atom"></i>
-                </div>
-                <h3 class="service-title">QUANTUM SEO</h3>
-                <p class="service-desc">
-                    Algorithm penetration using quantum computing principles for 
-                    search engine dominance across all dimensions.
-                </p>
-                <div style="margin-top: 2rem; font-size: 0.8rem; color: var(--neon-blue);">
-                    <i class="fas fa-chart-line"></i> 417% ROI AVG
-                </div>
-            </div>
-
-            <div class="service-card cyber-border">
-                <div class="service-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <h3 class="service-title">AUTONOMOUS BRANDS</h3>
-                <p class="service-desc">
-                    Self-optimizing brand ecosystems that evolve autonomously 
-                    based on real-time market data streams.
-                </p>
-                <div style="margin-top: 2rem; font-size: 0.8rem; color: var(--neon-blue);">
-                    <i class="fas fa-sync-alt"></i> 24/7 EVOLUTION
-                </div>
-            </div>
-
-            <div class="service-card cyber-border">
-                <div class="service-icon">
-                    <i class="fas fa-hologram"></i>
-                </div>
-                <h3 class="service-title">DIGITAL TWINS</h3>
-                <p class="service-desc">
-                    Create perfect virtual replicas of your business operations 
-                    for risk-free strategy simulation and optimization.
-                </p>
-                <div style="margin-top: 2rem; font-size: 0.8rem; color: var(--neon-blue);">
-                    <i class="fas fa-project-diagram"></i> PARALLEL SIMULATION
-                </div>
-            </div>
-
-            <div class="service-card cyber-border">
-                <div class="service-icon">
-                    <i class="fas fa-broadcast-tower"></i>
-                </div>
-                <h3 class="service-title">DATA STREAMING</h3>
-                <p class="service-desc">
-                    Real-time data ingestion and processing pipelines that transform 
-                    information into actionable intelligence instantly.
-                </p>
-                <div style="margin-top: 2rem; font-size: 0.8rem; color: var(--neon-blue);">
-                    <i class="fas fa-bolt"></i> 0.003s LATENCY
-                </div>
-            </div>
-
-            <div class="service-card cyber-border">
-                <div class="service-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3 class="service-title">CYBER IMMUNITY</h3>
-                <p class="service-desc">
-                    Proactive digital defense systems that learn and adapt to threats 
-                    before they materialize in your ecosystem.
-                </p>
-                <div style="margin-top: 2rem; font-size: 0.8rem; color: var(--neon-blue);">
-                    <i class="fas fa-user-shield"></i> 100% UPTIME GUARANTEE
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dashboard Preview -->
-    <section id="dashboard" class="dashboard-preview">
-        <h2 class="section-title"><span class="matrix-text">REAL-TIME</span> DASHBOARD</h2>
-        <div class="dashboard-container cyber-border cyber-border-glow">
-            <div class="dashboard-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                <h3 style="font-size: 1.5rem;">NEURAL COMMAND CENTER</h3>
-                <div class="matrix-text" style="font-size: 0.9rem;">
-                    <i class="fas fa-satellite"></i> LIVE FEED ACTIVE
-                </div>
-            </div>
-            <div class="dashboard-grid">
-                <div class="metric-card">
-                    <div class="metric-value matrix-text">14.7M</div>
-                    <div class="metric-label">DATA POINTS PROCESSED</div>
-                    <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
-                        ↑ 47% THIS CYCLE
+            <div class="services">
+                <div class="services-grid">
+                    <!-- Service cards with multilingual content -->
+                    <div class="service-card cyber-border">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="service-title lang-text" data-en="NEURAL MARKETING" data-sw="UUZAJI WA NEVA">NEURAL MARKETING</h3>
+                        <p class="service-desc lang-text"
+                           data-en="AI-driven predictive analytics that anticipates consumer behavior 92.7% faster than traditional methods."
+                           data-sw="Uchambuzi wa utabiri unaoongozwa na AI unaotabiri tabia ya watumiaji 92.7% haraka kuliko njia za jadi.">
+                            AI-driven predictive analytics that anticipates consumer behavior.
+                        </p>
+                        <div style="margin-top: 2rem; font-size: 0.8rem; color: var(--neon-blue);">
+                            <i class="fas fa-microchip"></i> 
+                            <span class="lang-text" data-en="REAL-TIME PROCESSING" data-sw="USINDIKAJI WA WAKATU HALISI">REAL-TIME PROCESSING</span>
+                        </div>
                     </div>
+                    
+                    <!-- Add more service cards similarly -->
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value matrix-text">99.97%</div>
-                    <div class="metric-label">PREDICTION ACCURACY</div>
-                    <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
-                        AI CONFIDENCE LEVEL
+            </div>
+        </section>
+
+        <!-- ANALYTICS PAGE CONTENT -->
+        <section id="analyticsPage" class="lang-content" data-page="analytics" style="display: none;">
+            <div class="page-hero">
+                <h1 class="page-title">
+                    <span class="matrix-text lang-text" data-en="REAL-TIME" data-sw="WAKATU HALISI"></span>
+                    <span class="lang-text" data-en="ANALYTICS" data-sw="UCHAMBUZI"></span>
+                </h1>
+                <p class="page-subtitle lang-text"
+                   data-en="Live data visualization and predictive analytics dashboard"
+                   data-sw="Uonyeshaji wa data ya moja kwa moja na dashibodi ya uchambuzi wa utabiri">
+                    Live data visualization and predictive analytics dashboard
+                </p>
+            </div>
+
+            <div class="dashboard-preview">
+                <div class="dashboard-container cyber-border cyber-border-glow">
+                    <div class="dashboard-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.5rem;" class="lang-text" data-en="NEURAL COMMAND CENTER" data-sw="KITUO CHA AMRI CHA NEVA">NEURAL COMMAND CENTER</h3>
+                        <div class="matrix-text" style="font-size: 0.9rem;">
+                            <i class="fas fa-satellite"></i> 
+                            <span class="lang-text" data-en="LIVE FEED ACTIVE" data-sw="MLISHO HALISI AMILIFU">LIVE FEED ACTIVE</span>
+                        </div>
                     </div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value matrix-text">0.003s</div>
-                    <div class="metric-label">RESPONSE TIME</div>
-                    <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
-                        QUANTUM PROCESSING
-                    </div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value matrix-text">∞</div>
-                    <div class="metric-label">SCALABILITY FACTOR</div>
-                    <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
-                        UNLIMITED BANDWIDTH
+                    
+                    <div class="dashboard-grid">
+                        <!-- Metric cards with multilingual content -->
+                        <div class="metric-card">
+                            <div class="metric-value matrix-text">14.7M</div>
+                            <div class="metric-label lang-text" data-en="DATA POINTS PROCESSED" data-sw="VIDATO VYA DATA VILIVYOSINDIKWA">DATA POINTS PROCESSED</div>
+                        </div>
+                        <!-- Add more metrics similarly -->
                     </div>
                 </div>
             </div>
-            <div style="margin-top: 3rem; padding: 1.5rem; background: rgba(0, 255, 65, 0.05); border-left: 4px solid var(--matrix-green);">
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
-                    <div class="matrix-text"><i class="fas fa-server"></i> SYSTEM STATUS</div>
-                    <div style="width: 10px; height: 10px; background: var(--matrix-green); border-radius: 50%; animation: pulse 1s infinite;"></div>
-                </div>
-                <div style="color: var(--text-secondary); font-size: 0.9rem;">
-                    All neural networks operating at optimal capacity. 
-                    <span class="matrix-text">87 AI models actively learning.</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- AI Terminal -->
-    <section id="terminal" class="terminal-section">
-        <h2 class="section-title"><span class="matrix-text">AI</span> TERMINAL</h2>
-        <div class="terminal-container">
-            <div class="terminal-header">
-                <i class="fas fa-terminal"></i>
-                NEURALINK_COMMAND_PROMPT v3.2.1
+        <!-- Add similar sections for other pages (ai-terminal, portfolio, about, contact, etc.) -->
+        
+        <!-- PORTFOLIO PAGE CONTENT -->
+        <section id="portfolioPage" class="lang-content" data-page="portfolio" style="display: none;">
+            <div class="page-hero">
+                <h1 class="page-title">
+                    <span class="lang-text" data-en="PORTFOLIO" data-sw="MFUKO WA KAZI">PORTFOLIO</span>
+                </h1>
+                <p class="page-subtitle lang-text"
+                   data-en="Showcase of our digital transformation projects and client success stories"
+                   data-sw="Maonyesho ya miradi yetu ya mageuzi ya kidijitali na hadithi za mafanikio ya wateja">
+                    Showcase of our digital transformation projects
+                </p>
             </div>
-            <div class="terminal-output">
-                <div>> INITIALIZING NEURAL NETWORK...</div>
-                <div style="color: var(--matrix-green);">✓ NETWORK SYNC COMPLETE</div>
-                <div>> LOADING MARKET PREDICTION MODELS...</div>
-                <div style="color: var(--matrix-green);">✓ 47 MODULES ACTIVE</div>
-                <div>> ANALYZING COMPETITIVE LANDSCAPE...</div>
-                <div style="color: var(--matrix-green);">✓ THREAT ASSESSMENT: MINIMAL</div>
-                <div>> CALCULATING OPTIMIZATION PATHS...</div>
-                <div style="color: var(--matrix-green);">✓ 12,847 OPTIONS PROCESSED</div>
-                <div>> READY FOR COMMAND INPUT</div>
+            
+            <div class="portfolio-grid">
+                <!-- Portfolio cards will be added dynamically -->
             </div>
-            <div class="terminal-input">
-                <span class="matrix-text">root@neuralink:~$</span> 
-                <span id="typingText"></span>
-                <span class="cursor"></span>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <h2 class="section-title">INITIATE <span class="matrix-text">CONNECTION</span></h2>
-        <p style="max-width: 600px; margin: 0 auto 3rem; color: var(--text-secondary);">
-            Submit your credentials for neural synchronization. 
-            Our AI will analyze your digital footprint within 0.4 seconds.
-        </p>
-        <div class="contact-form">
-            <div class="form-group">
-                <input type="text" class="form-input cyber-border" placeholder="CORPORATION IDENTIFIER">
+        <!-- ABOUT PAGE CONTENT -->
+        <section id="aboutPage" class="lang-content" data-page="about" style="display: none;">
+            <div class="page-hero">
+                <h1 class="page-title">
+                    <span class="lang-text" data-en="ABOUT" data-sw="KUHUSU">ABOUT</span> 
+                    <span class="matrix-text">NEURALINK</span>
+                </h1>
             </div>
-            <div class="form-group">
-                <input type="email" class="form-input cyber-border" placeholder="QUANTUM COMMUNICATION NODE">
+            
+            <div class="about-section">
+                <div class="about-content">
+                    <div>
+                        <h2 class="lang-text" data-en="DIGITAL EVOLUTION PIONEERS" data-sw="WANZILISHI WA MAGEUZI YA KIDIJITALI">DIGITAL EVOLUTION PIONEERS</h2>
+                        <p class="lang-text" data-en="Founded in 2020, Neuralink represents the convergence of artificial intelligence, neural networks, and quantum computing in digital marketing. Our team of 47 specialists across 12 countries is dedicated to pushing the boundaries of what's possible in digital transformation."
+                           data-sw="Ilianzishwa mwaka 2020, Neuralink inawakilisha muunganiko wa akili bandia, mitandao ya neva, na kompyuta za quantum katika uuzaji wa kidijitali. Timu yetu ya wataalamu 47 katika nchi 12 imejitolea kusukuma mipaka ya yanayowezekana katika mageuzi ya kidijitali.">
+                            Founded in 2020, Neuralink represents the convergence of artificial intelligence.
+                        </p>
+                    </div>
+                    
+                    <div class="team-grid">
+                        <!-- Team members will be added dynamically -->
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <textarea class="form-input cyber-border" rows="4" placeholder="MISSION PARAMETERS / DIGITAL OBJECTIVES"></textarea>
+        </section>
+
+        <!-- CONTACT PAGE CONTENT -->
+        <section id="contactPage" class="lang-content" data-page="contact" style="display: none;">
+            <div class="page-hero">
+                <h1 class="page-title">
+                    <span class="lang-text" data-en="CONTACT" data-sw="WASILIANA">CONTACT</span> 
+                    <span class="matrix-text">NEURALINK</span>
+                </h1>
             </div>
-            <button class="submit-btn cyber-border">
-                TRANSMIT TO NEURAL NETWORK
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        </div>
-        <div style="margin-top: 4rem; padding: 2rem; background: rgba(0, 0, 0, 0.3); max-width: 800px; margin-left: auto; margin-right: auto;">
-            <div class="matrix-text" style="margin-bottom: 1rem;">
-                <i class="fas fa-satellite-dish"></i> SECURE TRANSMISSION PROTOCOLS ACTIVE
+            
+            <div class="contact-section">
+                <div class="contact-grid">
+                    <div class="contact-info cyber-border">
+                        <h3 class="lang-text" data-en="CONTACT INFORMATION" data-sw="TAARIFA ZA MAWASILIANO">CONTACT INFORMATION</h3>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt" style="color: var(--neon-blue);"></i>
+                            <div>
+                                <strong class="lang-text" data-en="HEADQUARTERS" data-sw="MAKAO MAKUU">HEADQUARTERS</strong>
+                                <p class="lang-text" data-en="Quantum Valley, Silicon Nexus" data-sw="Bonde la Quantum, Silicon Nexus">Quantum Valley, Silicon Nexus</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-envelope" style="color: var(--neon-blue);"></i>
+                            <div>
+                                <strong class="lang-text" data-en="EMAIL" data-sw="BARUA PEPE">EMAIL</strong>
+                                <p>neural@neuralink.digital</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-phone" style="color: var(--neon-blue);"></i>
+                            <div>
+                                <strong class="lang-text" data-en="QUANTUM LINE" data-sw="MSTARI WA QUANTUM">QUANTUM LINE</strong>
+                                <p>+1 (555) NEU-RAL1</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3 class="lang-text" data-en="SEND A MESSAGE" data-sw="TUMA UJUMBE">SEND A MESSAGE</h3>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-input cyber-border" 
+                                   placeholder="NAME" 
+                                   data-en-placeholder="NAME" 
+                                   data-sw-placeholder="JINA">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-input cyber-border" 
+                                   placeholder="EMAIL" 
+                                   data-en-placeholder="EMAIL" 
+                                   data-sw-placeholder="BARUA PEPE">
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-input cyber-border" rows="4"
+                                      placeholder="MESSAGE"
+                                      data-en-placeholder="MESSAGE"
+                                      data-sw-placeholder="UJUMBE"></textarea>
+                        </div>
+                        
+                        <button class="submit-btn cyber-border">
+                            <span class="lang-text" data-en="SEND MESSAGE" data-sw="TUMA UJUMBE">SEND MESSAGE</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div style="color: var(--text-secondary); font-size: 0.9rem;">
-                All communications encrypted with quantum-resistant algorithms. 
-                Data processed in our Swiss neuro-secure facilities.
+        </section>
+
+        <!-- BLOG PAGE CONTENT -->
+        <section id="blogPage" class="lang-content" data-page="blog" style="display: none;">
+            <div class="page-hero">
+                <h1 class="page-title">
+                    <span class="lang-text" data-en="NEURALINK" data-sw="NEURALINK">NEURALINK</span> 
+                    <span class="matrix-text">BLOG</span>
+                </h1>
             </div>
-        </div>
-    </section>
+            
+            <div class="blog-grid">
+                <!-- Blog articles will be added dynamically -->
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="logo">
-                NEURALINK
-                <div class="logo-dot"></div>
+            <div class="footer-section">
+                <a href="index.html" class="logo">
+                    NEURALINK
+                    <div class="logo-dot"></div>
+                </a>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;" class="lang-text"
+                   data-en="Digital Evolution Agency"
+                   data-sw="Wakala wa Mageuzi ya Kidijitali">
+                    Digital Evolution Agency
+                </p>
             </div>
-            <div style="color: var(--text-secondary); font-size: 0.9rem;">
-                © 2024 NEURALINK DIGITAL EVOLUTION | QUANTUM MARKETING DIVISION
+            
+            <div class="footer-section">
+                <h3 class="lang-text" data-en="QUICK LINKS" data-sw="VIUNGO VYA HARAKA">QUICK LINKS</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="lang-text" data-en="Home" data-sw="Nyumbani">Home</a></li>
+                    <li><a href="services.html" class="lang-text" data-en="Services" data-sw="Huduma">Services</a></li>
+                    <li><a href="portfolio.html" class="lang-text" data-en="Portfolio" data-sw="Mfuko wa Kazi">Portfolio</a></li>
+                    <li><a href="about.html" class="lang-text" data-en="About" data-sw="Kuhusu">About</a></li>
+                </ul>
             </div>
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+            
+            <div class="footer-section">
+                <h3 class="lang-text" data-en="SERVICES" data-sw="HUDUMA">SERVICES</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="lang-text" data-en="Neural Marketing" data-sw="Uuzaji wa Neva">Neural Marketing</a></li>
+                    <li><a href="#" class="lang-text" data-en="Quantum SEO" data-sw="SEO ya Quantum">Quantum SEO</a></li>
+                    <li><a href="#" class="lang-text" data-en="AI Integration" data-sw="Ushirikiano wa AI">AI Integration</a></li>
+                    <li><a href="#" class="lang-text" data-en="Data Analytics" data-sw="Uchambuzi wa Data">Data Analytics</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="lang-text" data-en="CONNECT" data-sw="UNGA">CONNECT</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                </div>
+                <p style="margin-top: 2rem; color: var(--text-secondary); font-size: 0.8rem;" class="lang-text"
+                   data-en="© 2024 NEURALINK. All rights reserved."
+                   data-sw="© 2024 NEURALINK. Haki zote zimehifadhiwa.">
+                    © 2024 NEURALINK. All rights reserved.
+                </p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Create floating data nodes
+        // Language management
+        let currentLang = 'en';
+        let currentPage = 'home';
+
+        // Multilingual content database
+        const contentDB = {
+            en: {
+                // Home page
+                home: {
+                    title: "SYNTHESIZE YOUR<br><span class='matrix-text'>DIGITAL DNA</span>",
+                    subtitle: "We architect premium digital ecosystems that transform data into dominance. Neural networks, AI integration, and quantum marketing strategies for the future-forward enterprise.",
+                    cta: "INITIATE CONNECTION"
+                },
+                // Services page
+                services: {
+                    title: "<span class='matrix-text'>CORE</span> SERVICES",
+                    subtitle: "Premium digital transformation services powered by neural networks and quantum computing"
+                },
+                // Add content for all other pages...
+            },
+            sw: {
+                // Home page
+                home: {
+                    title: "UNDA KITAMBULISHO CHAKO CHA<br><span class='matrix-text'>KIDIJITALI</span>",
+                    subtitle: "Tunabuni mifumo ya hali ya juu ya kidijitali ambayo hubadilisha data kuwa uongozi. Mitandao ya neva, ushirikiano wa AI, na mikakati ya uuzaji ya quantum kwa biashara ya mbele ya wakati ujao.",
+                    cta: "ANZA MUUNGANO"
+                },
+                // Services page
+                services: {
+                    title: "<span class='matrix-text'>MSINGI</span> HUDUMA",
+                    subtitle: "Huduma za hali ya juu za mageuzi ya kidijitali zinazotumia mitandao ya neva na kompyuta za quantum"
+                },
+                // Add content for all other pages...
+            }
+        };
+
+        // Page content database
+        const pages = {
+            home: {
+                id: 'homePage',
+                title: 'NEURALINK | Digital Evolution Agency',
+                file: 'index.html'
+            },
+            services: {
+                id: 'servicesPage',
+                title: 'Services | NEURALINK',
+                file: 'services.html'
+            },
+            analytics: {
+                id: 'analyticsPage',
+                title: 'Analytics | NEURALINK',
+                file: 'analytics.html'
+            },
+            'ai-terminal': {
+                id: 'aiTerminalPage',
+                title: 'AI Terminal | NEURALINK',
+                file: 'ai-terminal.html'
+            },
+            portfolio: {
+                id: 'portfolioPage',
+                title: 'Portfolio | NEURALINK',
+                file: 'portfolio.html'
+            },
+            about: {
+                id: 'aboutPage',
+                title: 'About | NEURALINK',
+                file: 'about.html'
+            },
+            contact: {
+                id: 'contactPage',
+                title: 'Contact | NEURALINK',
+                file: 'contact.html'
+            },
+            blog: {
+                id: 'blogPage',
+                title: 'Blog | NEURALINK',
+                file: 'blog.html'
+            }
+        };
+
+        // Language switcher
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            
+            // Update all multilingual text
+            document.querySelectorAll('.lang-text').forEach(element => {
+                const text = element.dataset[lang];
+                if (text) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = text;
+                    } else {
+                        element.innerHTML = text;
+                    }
+                }
+            });
+            
+            // Update page title
+            updatePageTitle();
+            
+            // Save language preference
+            localStorage.setItem('neuralink_lang', lang);
+        }
+
+        // Page navigation
+        function navigateToPage(pageId) {
+            // Show page transition
+            const transition = document.getElementById('pageTransition');
+            transition.style.transform = 'translateY(0)';
+            
+            setTimeout(() => {
+                // Hide all pages
+                document.querySelectorAll('.lang-content').forEach(page => {
+                    page.style.display = 'none';
+                });
+                
+                // Show target page
+                const targetPage = document.getElementById(pages[pageId].id);
+                if (targetPage) {
+                    targetPage.style.display = 'block';
+                    currentPage = pageId;
+                }
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.style.color = link.href.includes(pageId) ? 'var(--neon-blue)' : '';
+                });
+                
+                // Update URL
+                history.pushState({ page: pageId }, '', pages[pageId].file);
+                
+                // Update page title
+                updatePageTitle();
+                
+                // Hide transition
+                setTimeout(() => {
+                    transition.style.transform = 'translateY(-100%)';
+                }, 300);
+            }, 500);
+        }
+
+        function updatePageTitle() {
+            const pageTitle = pages[currentPage].title;
+            const langSuffix = currentLang === 'en' ? '' : ' | SW';
+            document.title = pageTitle + langSuffix;
+        }
+
+        // Create data flow animation
         function createDataFlow() {
             const container = document.getElementById('dataFlow');
+            if (!container) return;
+            
             for (let i = 0; i < 20; i++) {
                 const node = document.createElement('div');
                 node.className = 'data-node';
@@ -821,44 +1301,266 @@
             }
         }
 
-        // Terminal typing effect
-        function typeTerminalText() {
-            const texts = [
-                'run_optimization --sector=digital_marketing',
-                'analyze_market --depth=quantum',
-                'deploy_neural_network --nodes=2048',
-                'calculate_roi --period=forever',
-                'initiate_synthesis --target=market_dominance'
-            ];
-            let textIndex = 0;
-            let charIndex = 0;
-            const element = document.getElementById('typingText');
+        // Mobile menu toggle
+        function setupMobileMenu() {
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
             
-            function type() {
-                if (charIndex < texts[textIndex].length) {
-                    element.textContent += texts[textIndex].charAt(charIndex);
-                    charIndex++;
-                    setTimeout(type, 50);
-                } else {
-                    setTimeout(erase, 2000);
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!menuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
                 }
-            }
-            
-            function erase() {
-                if (charIndex > 0) {
-                    element.textContent = texts[textIndex].substring(0, charIndex - 1);
-                    charIndex--;
-                    setTimeout(erase, 30);
-                } else {
-                    textIndex = (textIndex + 1) % texts.length;
-                    setTimeout(type, 500);
-                }
-            }
-            
-            type();
+            });
         }
 
-        // Interactive cubes
+        // Initialize portfolio content
+        function initPortfolio() {
+            const portfolioGrid = document.querySelector('.portfolio-grid');
+            if (!portfolioGrid) return;
+            
+            const projects = [
+                { 
+                    title: { en: "Quantum E-commerce Platform", sw: "Jukwaa la Biashara ya Quantum" },
+                    category: { en: "AI Integration", sw: "Ushirikiano wa AI" }
+                },
+                { 
+                    title: { en: "Neural Analytics Dashboard", sw: "Dashibodi ya Uchambuzi wa Neva" },
+                    category: { en: "Data Visualization", sw: "Uonyeshaji wa Data" }
+                },
+                // Add more projects...
+            ];
+            
+            projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'portfolio-card cyber-border';
+                card.innerHTML = `
+                    <div class="portfolio-img" style="background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));"></div>
+                    <div class="portfolio-overlay">
+                        <h4 class="lang-text" data-en="${project.title.en}" data-sw="${project.title.sw}">${project.title.en}</h4>
+                        <p class="lang-text" data-en="${project.category.en}" data-sw="${project.category.sw}" 
+                           style="color: var(--neon-blue); margin-top: 0.5rem; font-size: 0.9rem;">${project.category.en}</p>
+                    </div>
+                `;
+                portfolioGrid.appendChild(card);
+            });
+        }
+
+        // Initialize blog content
+        function initBlog() {
+            const blogGrid = document.querySelector('.blog-grid');
+            if (!blogGrid) return;
+            
+            const articles = [
+                { 
+                    title: { en: "The Future of Neural Marketing", sw: "Mustakabali wa Uuzaji wa Neva" },
+                    date: { en: "March 15, 2024", sw: "Mach 15, 2024" },
+                    excerpt: { en: "Exploring how neural networks are revolutionizing digital marketing...", 
+                              sw: "Kuchunguza jinsi mitandao ya neva inavyobadilisha uuzaji wa kidijitali..." }
+                },
+                // Add more articles...
+            ];
+            
+            articles.forEach(article => {
+                const card = document.createElement('article');
+                card.className = 'blog-card cyber-border';
+                card.innerHTML = `
+                    <div style="height: 200px; background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));"></div>
+                    <div class="blog-content">
+                        <div class="blog-date lang-text" data-en="${article.date.en}" data-sw="${article.date.sw}">${article.date.en}</div>
+                        <h4 class="lang-text" data-en="${article.title.en}" data-sw="${article.title.sw}">${article.title.en}</h4>
+                        <p class="lang-text" data-en="${article.excerpt.en}" data-sw="${article.excerpt.sw}" 
+                           style="margin-top: 1rem; color: var(--text-secondary);">${article.excerpt.en}</p>
+                        <a href="#" style="display: inline-block; margin-top: 1.5rem; color: var(--neon-blue); text-decoration: none;" 
+                           class="lang-text" data-en="Read More →" data-sw="Soma Zaidi →">Read More →</a>
+                    </div>
+                `;
+                blogGrid.appendChild(card);
+            });
+        }
+
+        // Initialize team members
+        function initTeam() {
+            const teamGrid = document.querySelector('.team-grid');
+            if (!teamGrid) return;
+            
+            const team = [
+                { 
+                    name: { en: "Dr. Alex Chen", sw: "Dkt. Alex Chen" },
+                    role: { en: "Chief Neural Architect", sw: "Mkurugenzi Mkuu wa Usanifu wa Neva" }
+                },
+                // Add more team members...
+            ];
+            
+            team.forEach(member => {
+                const memberDiv = document.createElement('div');
+                memberDiv.className = 'team-member';
+                memberDiv.innerHTML = `
+                    <div class="team-avatar">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <h4>${member.name.en}</h4>
+                    <p class="lang-text" data-en="${member.role.en}" data-sw="${member.role.sw}" 
+                       style="color: var(--neon-blue); margin-top: 0.5rem;">${member.role.en}</p>
+                `;
+                teamGrid.appendChild(memberDiv);
+            });
+        }
+
+        // Form submission handler
+        function setupForms() {
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                const submitBtn = contactForm.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    submitBtn.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> ' + 
+                        (currentLang === 'en' ? 'SENDING...' : 'INATUMWA...');
+                    submitBtn.disabled = true;
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        submitBtn.innerHTML = '<i class="fas fa-check"></i> ' + 
+                            (currentLang === 'en' ? 'MESSAGE SENT' : 'UJUMBE UMEWASILISHWA');
+                        submitBtn.style.background = 'var(--matrix-green)';
+                        submitBtn.style.color = '#000';
+                        
+                        // Show success message
+                        const notification = document.createElement('div');
+                        notification.style.cssText = `
+                            position: fixed;
+                            top: 20px;
+                            right: 20px;
+                            background: var(--matrix-green);
+                            color: #000;
+                            padding: 1rem 2rem;
+                            font-family: 'Space Grotesk', monospace;
+                            z-index: 10000;
+                            border: 2px solid #000;
+                        `;
+                        notification.innerHTML = `
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <div style="font-weight: bold;">${currentLang === 'en' ? 'MESSAGE TRANSMITTED' : 'UJUMBE UMEFIKISHWA'}</div>
+                                    <div style="font-size: 0.8rem;">${currentLang === 'en' ? 'Neural response incoming...' : 'Jibu la neva linakuja...'}</div>
+                                </div>
+                            </div>
+                        `;
+                        document.body.appendChild(notification);
+                        
+                        setTimeout(() => {
+                            notification.style.transform = 'translateX(100%)';
+                            notification.style.opacity = '0';
+                            setTimeout(() => notification.remove(), 300);
+                        }, 3000);
+                        
+                        // Reset form
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.style.background = '';
+                            submitBtn.style.color = '';
+                            contactForm.reset();
+                        }, 5000);
+                    }, 1500);
+                });
+            }
+        }
+
+        // Terminal typing effect
+        function typeTerminalText() {
+            const terminal = document.querySelector('.terminal-output');
+            if (!terminal) return;
+            
+            const messages = [
+                { en: "> INITIALIZING NEURAL NETWORK...", sw: "> KIANZISHA MTANDAO WA NEVA..." },
+                { en: "✓ NETWORK SYNC COMPLETE", sw: "✓ USAWAZISHAJI WA MTANDAO UMEMALIZIKA" },
+                { en: "> LOADING MARKET PREDICTION MODELS...", sw: "> KUPAKIA MIUNDO YA UTABIRI WA SOKO..." },
+                { en: "✓ 47 MODULES ACTIVE", sw: "✓ MODULE 47 ZIMETUMIKA" },
+                { en: "> READY FOR COMMAND INPUT", sw: "> TAYARI KWA AMRI" }
+            ];
+            
+            terminal.innerHTML = '';
+            
+            messages.forEach((msg, index) => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.className = 'lang-text';
+                    div.dataset.en = msg.en;
+                    div.dataset.sw = msg.sw;
+                    div.textContent = currentLang === 'en' ? msg.en : msg.sw;
+                    div.style.color = msg.en.startsWith('✓') ? 'var(--matrix-green)' : '#00ff41';
+                    terminal.appendChild(div);
+                    
+                    // Update for current language
+                    if (index === messages.length - 1) {
+                        switchLanguage(currentLang);
+                    }
+                }, index * 800);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load saved language preference
+            const savedLang = localStorage.getItem('neuralink_lang') || 'en';
+            switchLanguage(savedLang);
+            
+            // Set up event listeners
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    switchLanguage(btn.dataset.lang);
+                    if (currentPage === 'ai-terminal') {
+                        typeTerminalText();
+                    }
+                });
+            });
+            
+            // Set up navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const href = link.getAttribute('href');
+                    const pageId = href.replace('.html', '').replace('index', 'home');
+                    navigateToPage(pageId);
+                });
+            });
+            
+            // Initialize animations and content
+            createDataFlow();
+            setupMobileMenu();
+            initPortfolio();
+            initBlog();
+            initTeam();
+            setupForms();
+            
+            // Handle browser back/forward
+            window.addEventListener('popstate', (e) => {
+                if (e.state && e.state.page) {
+                    navigateToPage(e.state.page);
+                }
+            });
+            
+            // Hide page transition after load
+            setTimeout(() => {
+                document.getElementById('pageTransition').style.transform = 'translateY(-100%)';
+            }, 1000);
+            
+            // Initialize terminal if on AI Terminal page
+            if (window.location.pathname.includes('ai-terminal') || currentPage === 'ai-terminal') {
+                setTimeout(typeTerminalText, 1000);
+            }
+        });
+
+        // Create interactive cubes
         function animateCubes() {
             const cubes = document.querySelectorAll('.floating-cube');
             cubes.forEach(cube => {
@@ -872,94 +1574,10 @@
             });
         }
 
-        // Form submission
-        document.querySelector('.submit-btn').addEventListener('click', (e) => {
-            e.preventDefault();
-            const btn = e.target;
-            const originalText = btn.innerHTML;
-            
-            btn.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> TRANSMITTING...';
-            btn.disabled = true;
-            
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check"></i> NEURAL LINK ESTABLISHED';
-                btn.style.background = 'var(--matrix-green)';
-                btn.style.color = '#000';
-                
-                // Create success notification
-                const notification = document.createElement('div');
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: var(--matrix-green);
-                    color: #000;
-                    padding: 1rem 2rem;
-                    font-family: 'Space Grotesk', monospace;
-                    z-index: 10000;
-                    border: 2px solid #000;
-                `;
-                notification.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <i class="fas fa-check-circle"></i>
-                        <div>
-                            <div style="font-weight: bold;">CONNECTION ESTABLISHED</div>
-                            <div style="font-size: 0.8rem;">AI analysis commencing...</div>
-                        </div>
-                    </div>
-                `;
-                document.body.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.style.transform = 'translateX(100%)';
-                    notification.style.opacity = '0';
-                    setTimeout(() => notification.remove(), 300);
-                }, 3000);
-                
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                    btn.style.background = '';
-                    btn.style.color = '';
-                }, 5000);
-            }, 1500);
-        });
-
-        // Initialize everything
-        document.addEventListener('DOMContentLoaded', () => {
-            createDataFlow();
-            typeTerminalText();
+        // Initialize cubes if they exist
+        if (document.querySelector('.floating-cube')) {
             animateCubes();
-            
-            // Add glitch effect to hero title randomly
-            setInterval(() => {
-                const glitch = document.querySelector('.glitch');
-                glitch.style.animation = 'none';
-                setTimeout(() => {
-                    glitch.style.animation = 'glitch-1 0.3s infinite linear alternate-reverse';
-                }, 10);
-                setTimeout(() => {
-                    glitch.style.animation = '';
-                }, 300);
-            }, 5000);
-            
-            // Add scroll animation for service cards
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.transform = 'translateY(0)';
-                        entry.target.style.opacity = '1';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            document.querySelectorAll('.service-card').forEach(card => {
-                card.style.transform = 'translateY(50px)';
-                card.style.opacity = '0';
-                card.style.transition = '0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-                observer.observe(card);
-            });
-        });
+        }
     </script>
 </body>
 </html>
