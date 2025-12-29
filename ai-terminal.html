@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEURALINK | AI Terminal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* All CSS from the main page */
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-purple: #b967ff;
+            --cyber-pink: #ff00ff;
+            --matrix-green: #00ff41;
+            --dark-bg: #0a0a0f;
+            --card-bg: #11111f;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0c0;
+            --glow: 0 0 20px;
+            --transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--dark-bg);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(ellipse at top, #0a0a1a 0%, #000000 100%);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Space Grotesk', monospace;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cyber-border {
+            position: relative;
+            border: 1px solid transparent;
+            background: linear-gradient(var(--dark-bg), var(--dark-bg)) padding-box,
+                        linear-gradient(45deg, var(--neon-blue), var(--neon-purple)) border-box;
+        }
+
+        .matrix-text {
+            background: linear-gradient(90deg, var(--matrix-green), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--neon-blue);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-blue);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 2rem;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--neon-blue);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .lang-btn.active {
+            background: var(--neon-blue);
+            color: var(--dark-bg);
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: rgba(0, 243, 255, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* AI Terminal Specific Styles */
+        .terminal-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 10rem 5% 5rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .terminal-container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5% 5rem;
+        }
+
+        /* Neural Network Visualization */
+        .neural-viz {
+            position: relative;
+            height: 400px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .neuron {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--matrix-green);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 0 10px var(--matrix-green);
+        }
+
+        .neuron:hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            box-shadow: 0 0 20px var(--matrix-green);
+        }
+
+        .connection {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), transparent);
+            transform-origin: 0 0;
+            z-index: 1;
+        }
+
+        /* Chat Interface */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .chat-header {
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 1rem;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .message.ai {
+            align-self: flex-start;
+            background: rgba(0, 243, 255, 0.1);
+            border-left: 3px solid var(--neon-blue);
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background: rgba(185, 103, 255, 0.1);
+            border-right: 3px solid var(--neon-purple);
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .message-header .ai-badge {
+            background: var(--neon-blue);
+            color: var(--dark-bg);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .chat-input-container {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .chat-input textarea {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            color: var(--text-primary);
+            padding: 1rem;
+            font-family: 'Inter', sans-serif;
+            resize: none;
+            min-height: 60px;
+        }
+
+        .chat-input textarea:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+
+        .send-btn {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+        }
+
+        /* AI Controls Panel */
+        .controls-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .control-group {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+        }
+
+        .slider-container {
+            margin: 1rem 0;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .slider {
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 243, 255, 0.1);
+            border-radius: 2px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+        }
+
+        .toggle-label {
+            color: var(--text-secondary);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider-toggle {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 243, 255, 0.1);
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider-toggle:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--text-primary);
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider-toggle {
+            background-color: var(--neon-blue);
+        }
+
+        input:checked + .slider-toggle:before {
+            transform: translateX(26px);
+        }
+
+        /* AI Status */
+        .ai-status {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 5%;
+        }
+
+        .status-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--matrix-green);
+            box-shadow: 0 0 10px var(--matrix-green);
+            animation: pulse 2s infinite;
+        }
+
+        .status-indicator.warning {
+            background: #ffb800;
+            box-shadow: 0 0 10px #ffb800;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: #000;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--neon-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-blue);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--neon-blue);
+            color: var(--dark-bg);
+        }
+
+        /* Scan Line */
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--neon-blue), transparent);
+            z-index: 9999;
+            animation: scan 3s linear infinite;
+            pointer-events: none;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+        }
+
+        @keyframes scan {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        @keyframes typing {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .terminal-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .ai-status {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark-bg);
+                flex-direction: column;
+                padding: 2rem;
+                border-top: 1px solid rgba(0, 243, 255, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .language-switcher {
+                margin-left: 0;
+                justify-content: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .message {
+                max-width: 90%;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        /* Typing animation */
+        .typing-animation {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid var(--neon-blue);
+            animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scan Line -->
+    <div class="scan-line"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            NEURALINK
+            <div class="logo-dot"></div>
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="services.html" class="nav-link">SERVICES</a>
+            <a href="analytics.html" class="nav-link">ANALYTICS</a>
+            <a href="ai-terminal.html" class="nav-link active">AI TERMINAL</a>
+            <a href="portfolio.html" class="nav-link">PORTFOLIO</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+            
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="sw">SW</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- AI Terminal Hero -->
+    <section class="terminal-hero">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div class="hero-badge cyber-border" style="padding: 0.5rem 1.5rem; display: inline-block; margin-bottom: 2rem;">
+                <span class="matrix-text">NEURAL NET v3.2</span>
+            </div>
+            <h1 class="section-title">
+                <span class="lang-text" data-en="NEURAL" data-sw="NEVA">NEURAL</span>
+                <span class="matrix-text"> AI </span>
+                <span class="lang-text" data-en="TERMINAL" data-sw="KITUO">TERMINAL</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="lang-text" data-en="Interface with our quantum neural network. Real-time AI processing, predictive analysis, and digital ecosystem optimization at your fingertips." 
+                data-sw="Wasiliana na mtandao wetu wa neva wa quantum. Usindikaji wa AI wa wakati halisi, uchambuzi wa utabiri, na uboreshaji wa mfumo wa kidijitali kwenye vidole vyako.">
+                    Interface with our quantum neural network. Real-time AI processing at your fingertips.
+                </span>
+            </p>
+            <div class="typing-animation" style="color: var(--neon-blue); font-family: 'Space Grotesk', monospace;">
+                <span class="lang-text" data-en="SYSTEM: ONLINE | QUANTUM PROCESSOR: ACTIVE | NEURAL NET: LEARNING" 
+                      data-sw="MFUMO: MTANDAO | KISASA CHA QUANTUM: KINAENDELEA | MTANDAO WA NEVA: UNAJIFUNZA">
+                    SYSTEM: ONLINE | QUANTUM PROCESSOR: ACTIVE
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Terminal Container -->
+    <div class="terminal-container">
+        <!-- Left: Neural Network Visualization -->
+        <div>
+            <h3 style="margin-bottom: 1rem; color: var(--neon-blue);">
+                <i class="fas fa-project-diagram"></i>
+                <span class="lang-text" data-en="NEURAL NETWORK VISUALIZATION" data-sw="UONYESHAJI WA MTANDAO WA NEVA">NEURAL NETWORK VISUALIZATION</span>
+            </h3>
+            <div class="neural-viz cyber-border" id="neuralNetwork">
+                <!-- Neural network will be generated by JavaScript -->
+            </div>
+            
+            <!-- Chat Interface -->
+            <div style="margin-top: 2rem;">
+                <h3 style="margin-bottom: 1rem; color: var(--neon-purple);">
+                    <i class="fas fa-comment-alt"></i>
+                    <span class="lang-text" data-en="AI CONSULTATION" data-sw="USHURI WA AI">AI CONSULTATION</span>
+                </h3>
+                <div class="chat-container cyber-border">
+                    <div class="chat-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div class="status-indicator"></div>
+                            <span class="lang-text" data-en="Neural Assistant v3.2 - Online" data-sw="Msaidizi wa Neva v3.2 - Mtandaoni">Neural Assistant v3.2 - Online</span>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message ai">
+                            <div class="message-header">
+                                <span class="ai-badge">NEURAL AI</span>
+                                <span style="color: var(--text-secondary);">Today, 10:24 AM</span>
+                            </div>
+                            <p class="lang-text" data-en="Hello! I'm your Neural AI assistant. I can help you analyze data, optimize strategies, predict market trends, or answer questions about your digital ecosystem. How can I assist you today?" 
+                               data-sw="Habari! Mimi ni msaidizi wako wa AI wa Neva. Ninaweza kukusaidia kuchambua data, kuboresha mikakati, kutabiri mienendo ya soko, au kujibu maswali kuhusu mfumo wako wa kidijitali. Ninaweza kukusaidia vipi leo?">
+                                Hello! I'm your Neural AI assistant. How can I assist you today?
+                            </p>
+                        </div>
+                        
+                        <div class="message user">
+                            <div class="message-header">
+                                <span style="color: var(--neon-purple);">USER</span>
+                                <span style="color: var(--text-secondary);">Today, 10:25 AM</span>
+                            </div>
+                            <p class="lang-text" data-en="Show me current performance metrics" data-sw="Nionyeshe vipimo vya sasa vya utendaji">Show me current performance metrics</p>
+                        </div>
+                        
+                        <div class="message ai">
+                            <div class="message-header">
+                                <span class="ai-badge">NEURAL AI</span>
+                                <span style="color: var(--text-secondary);">Today, 10:25 AM</span>
+                            </div>
+                            <p class="lang-text" data-en="Analyzing real-time data streams...<br><br>📊 <strong>Current Performance Metrics:</strong><br>• Conversion Rate: +23% from yesterday<br>• User Engagement: 47 minutes avg session<br>• Traffic Quality: 94% organic<br>• ROI: 3.7x average<br><br>Recommendation: Optimize mobile landing pages for +15% conversion boost." 
+                               data-sw="Ninachambua mtiririko wa data wa wakati halisi...<br><br>📊 <strong>Vipimo vya Sasa vya Utendaji:</strong><br>• Kiwango cha Ubadilishaji: +23% kutwa jana<br>• Ushiriki wa Mtumiaji: 47 dakika wastani wa kipindi<br>• Ubora wa Traffic: 94% asilia<br>• ROI: 3.7x wastani<br><br>Mapendekezo: Boresha kurasa za kutua za rununu kwa ongezeko la +15% la ubadilishaji.">
+                                Analyzing real-time data streams...
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <div class="chat-input">
+                            <textarea id="userInput" 
+                                      placeholder="Type your message to the Neural AI..."
+                                      data-en-placeholder="Type your message to the Neural AI..."
+                                      data-sw-placeholder="Andika ujumbe wako kwa AI ya Neva..."></textarea>
+                            <button class="send-btn" id="sendMessage">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: AI Controls Panel -->
+        <div class="controls-panel">
+            <div class="control-group cyber-border">
+                <h4 style="margin-bottom: 1rem; color: var(--neon-blue);">
+                    <i class="fas fa-sliders-h"></i>
+                    <span class="lang-text" data-en="AI PARAMETERS" data-sw="VIGEA VYA AI">AI PARAMETERS</span>
+                </h4>
+                
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span class="lang-text" data-en="Learning Rate" data-sw="Kiwango cha Kujifunza">Learning Rate</span>
+                        <span id="learningRateValue">0.75</span>
+                    </div>
+                    <input type="range" min="0" max="1" step="0.01" value="0.75" class="slider" id="learningRate">
+                </div>
+                
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span class="lang-text" data-en="Creativity" data-sw="Ubunifu">Creativity</span>
+                        <span id="creativityValue">0.6</span>
+                    </div>
+                    <input type="range" min="0" max="1" step="0.01" value="0.6" class="slider" id="creativity">
+                </div>
+                
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span class="lang-text" data-en="Precision" data-sw="Usahihi">Precision</span>
+                        <span id="precisionValue">0.85</span>
+                    </div>
+                    <input type="range" min="0" max="1" step="0.01" value="0.85" class="slider" id="precision">
+                </div>
+            </div>
+
+            <div class="control-group cyber-border">
+                <h4 style="margin-bottom: 1rem; color: var(--neon-purple);">
+                    <i class="fas fa-cogs"></i>
+                    <span class="lang-text" data-en="SYSTEM CONTROLS" data-sw="VIDIBITISHI VYA MFUMO">SYSTEM CONTROLS</span>
+                </h4>
+                
+                <div class="toggle-switch">
+                    <span class="toggle-label lang-text" data-en="Quantum Processing" data-sw="Usindikaji wa Quantum">Quantum Processing</span>
+                    <label class="switch">
+                        <input type="checkbox" checked id="quantumToggle">
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+                
+                <div class="toggle-switch">
+                    <span class="toggle-label lang-text" data-en="Neural Learning" data-sw="Kujifunza kwa Neva">Neural Learning</span>
+                    <label class="switch">
+                        <input type="checkbox" checked id="learningToggle">
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+                
+                <div class="toggle-switch">
+                    <span class="toggle-label lang-text" data-en="Predictive Analytics" data-sw="Uchambuzi wa Utabiri">Predictive Analytics</span>
+                    <label class="switch">
+                        <input type="checkbox" checked id="predictiveToggle">
+                        <span class="slider-toggle"></span>
+                    </label>
+                </div>
+                
+                <button class="send-btn" style="width: 100%; margin-top: 1rem; padding: 0.8rem;" id="optimizeBtn">
+                    <i class="fas fa-bolt"></i>
+                    <span class="lang-text" data-en="OPTIMIZE NOW" data-sw="BORESHA SASA">OPTIMIZE NOW</span>
+                </button>
+            </div>
+
+            <div class="control-group cyber-border">
+                <h4 style="margin-bottom: 1rem; color: var(--matrix-green);">
+                    <i class="fas fa-microchip"></i>
+                    <span class="lang-text" data-en="SYSTEM STATUS" data-sw="HALI YA MFUMO">SYSTEM STATUS</span>
+                </h4>
+                
+                <div style="margin: 0.5rem 0;">
+                    <span class="lang-text" data-en="Quantum Processor" data-sw="Kisasa cha Quantum">Quantum Processor:</span>
+                    <span style="color: var(--matrix-green); float: right;">ACTIVE</span>
+                </div>
+                
+                <div style="margin: 0.5rem 0;">
+                    <span class="lang-text" data-en="Neural Nodes" data-sw="Vituo vya Neva">Neural Nodes:</span>
+                    <span style="color: var(--matrix-green); float: right;">1,472</span>
+                </div>
+                
+                <div style="margin: 0.5rem 0;">
+                    <span class="lang-text" data-en="Processing Speed" data-sw="Kasi ya Usindikaji">Processing Speed:</span>
+                    <span style="color: var(--matrix-green); float: right;">0.003s</span>
+                </div>
+                
+                <div style="margin: 0.5rem 0;">
+                    <span class="lang-text" data-en="Data Throughput" data-sw="Upitishaji wa Data">Data Throughput:</span>
+                    <span style="color: var(--matrix-green); float: right;">14.7M/s</span>
+                </div>
+                
+                <div style="margin: 0.5rem 0;">
+                    <span class="lang-text" data-en="Memory Usage" data-sw="Matumizi ya Kumbukumbu">Memory Usage:</span>
+                    <span style="color: var(--matrix-green); float: right;">37%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Status Grid -->
+    <section style="padding: 0 5% 5rem;">
+        <div class="ai-status">
+            <div class="status-card cyber-border">
+                <div class="status-indicator"></div>
+                <div>
+                    <h4 class="lang-text" data-en="PREDICTION ENGINE" data-sw="INJINI YA UTABIRI">PREDICTION ENGINE</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        <span class="lang-text" data-en="99.7% accuracy" data-sw="Usahihi wa 99.7%">99.7% accuracy</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="status-card cyber-border">
+                <div class="status-indicator"></div>
+                <div>
+                    <h4 class="lang-text" data-en="NEURAL LEARNING" data-sw="KUJIFUNZA KWA NEVA">NEURAL LEARNING</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        <span class="lang-text" data-en="Active - 1,472 nodes" data-sw="Inaendelea - vitundu 1,472">Active - 1,472 nodes</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="status-card cyber-border">
+                <div class="status-indicator warning"></div>
+                <div>
+                    <h4 class="lang-text" data-en="DATA INTAKE" data-sw="UPOKEZI WA DATA">DATA INTAKE</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        <span class="lang-text" data-en="High volume detected" data-sw="Kiwango cha juu kimegunduliwa">High volume detected</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="status-card cyber-border">
+                <div class="status-indicator"></div>
+                <div>
+                    <h4 class="lang-text" data-en="SECURITY STATUS" data-sw="HALI YA USALAMA">SECURITY STATUS</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        <span class="lang-text" data-en="All systems secure" data-sw="Mifumo yote salama">All systems secure</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="index.html" class="logo">
+                    NEURALINK
+                    <div class="logo-dot"></div>
+                </a>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <span class="lang-text" data-en="Digital Evolution Agency" data-sw="Wakala wa Mageuzi ya Kidijitali">
+                        Digital Evolution Agency
+                    </span>
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="lang-text" data-en="QUICK LINKS" data-sw="VIUNGO VYA HARAKA">QUICK LINKS</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="lang-text" data-en="Home" data-sw="Nyumbani">Home</a></li>
+                    <li><a href="services.html" class="lang-text" data-en="Services" data-sw="Huduma">Services</a></li>
+                    <li><a href="ai-terminal.html" class="lang-text" data-en="AI Terminal" data-sw="Kituo cha AI">AI Terminal</a></li>
+                    <li><a href="about.html" class="lang-text" data-en="About" data-sw="Kuhusu">About</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="lang-text" data-en="AI TOOLS" data-sw="VIFAA VYA AI">AI TOOLS</h3>
+                <ul class="footer-links">
+                    <li><a href="#neural" class="lang-text" data-en="Neural Network" data-sw="Mtandao wa Neva">Neural Network</a></li>
+                    <li><a href="#chat" class="lang-text" data-en="AI Assistant" data-sw="Msaidizi wa AI">AI Assistant</a></li>
+                    <li><a href="#controls" class="lang-text" data-en="System Controls" data-sw="Vidibitishi vya Mfumo">System Controls</a></li>
+                    <li><a href="#status" class="lang-text" data-en="Status Monitor" data-sw="Kifuatiliaji cha Hali">Status Monitor</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="lang-text" data-en="CONNECT" data-sw="UNGA">CONNECT</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                </div>
+                <p style="margin-top: 2rem; color: var(--text-secondary); font-size: 0.8rem;">
+                    <span class="lang-text" data-en="© 2024 NEURALINK. All rights reserved." data-sw="© 2024 NEURALINK. Haki zote zimehifadhiwa.">
+                        © 2024 NEURALINK. All rights reserved.
+                    </span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language management
+        let currentLang = localStorage.getItem('neuralink_lang') || 'en';
+
+        // Switch language function
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            
+            // Update all text elements
+            document.querySelectorAll('.lang-text').forEach(element => {
+                const text = element.dataset[lang];
+                if (text) {
+                    element.innerHTML = text;
+                }
+            });
+            
+            // Update input placeholders
+            document.querySelectorAll('[data-en-placeholder]').forEach(input => {
+                const placeholder = input.getAttribute(`data-${lang}-placeholder`);
+                if (placeholder) {
+                    input.placeholder = placeholder;
+                }
+            });
+            
+            // Save preference
+            localStorage.setItem('neuralink_lang', lang);
+        }
+
+        // Create neural network visualization
+        function createNeuralNetwork() {
+            const container = document.getElementById('neuralNetwork');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            const layers = 5;
+            const neuronsPerLayer = [3, 5, 7, 5, 3];
+            
+            // Create neurons
+            for (let layer = 0; layer < layers; layer++) {
+                for (let i = 0; i < neuronsPerLayer[layer]; i++) {
+                    const neuron = document.createElement('div');
+                    neuron.className = 'neuron';
+                    
+                    // Position neurons
+                    const x = (layer + 1) * (100 / (layers + 1));
+                    const y = (i + 1) * (100 / (neuronsPerLayer[layer] + 1));
+                    
+                    neuron.style.left = `${x}%`;
+                    neuron.style.top = `${y}%`;
+                    
+                    // Add data attribute
+                    neuron.dataset.layer = layer;
+                    neuron.dataset.neuron = i;
+                    
+                    // Add tooltip
+                    neuron.title = `Layer ${layer + 1}, Neuron ${i + 1}`;
+                    
+                    container.appendChild(neuron);
+                }
+            }
+            
+            // Create connections between neurons
+            setTimeout(() => {
+                const allNeurons = document.querySelectorAll('.neuron');
+                
+                allNeurons.forEach((neuron1, index) => {
+                    allNeurons.forEach((neuron2, j) => {
+                        if (j > index) {
+                            const layer1 = parseInt(neuron1.dataset.layer);
+                            const layer2 = parseInt(neuron2.dataset.layer);
+                            
+                            // Connect neurons from adjacent layers
+                            if (Math.abs(layer1 - layer2) === 1) {
+                                const rect1 = neuron1.getBoundingClientRect();
+                                const rect2 = neuron2.getBoundingClientRect();
+                                const containerRect = container.getBoundingClientRect();
+                                
+                                const x1 = rect1.left + rect1.width/2 - containerRect.left;
+                                const y1 = rect1.top + rect1.height/2 - containerRect.top;
+                                const x2 = rect2.left + rect2.width/2 - containerRect.left;
+                                const y2 = rect2.top + rect2.height/2 - containerRect.top;
+                                
+                                const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                                const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+                                
+                                const connection = document.createElement('div');
+                                connection.className = 'connection';
+                                connection.style.width = `${length}px`;
+                                connection.style.left = `${x1}px`;
+                                connection.style.top = `${y1}px`;
+                                connection.style.transform = `rotate(${angle}deg)`;
+                                connection.style.opacity = 0.3 + Math.random() * 0.3;
+                                
+                                container.appendChild(connection);
+                            }
+                        }
+                    });
+                });
+            }, 100);
+        }
+
+        // AI responses database
+        const aiResponses = {
+            en: [
+                "Analyzing your query with quantum neural networks... I recommend optimizing your landing page CTAs for a 23% conversion increase.",
+                "Processing market data... Detected emerging trend in Southeast Asia markets with 47% growth potential.",
+                "Based on neural analysis, your current SEO strategy has 94% effectiveness. Recommendation: Increase content frequency by 15%.",
+                "Cybersecurity scan complete. All systems secure. Threat level: LOW. Continue current protocols.",
+                "Revenue prediction model activated. Projecting 34% growth next quarter based on current trajectory.",
+                "Competitor analysis complete. Main competitor testing new pricing strategy. Recommendation: Implement dynamic pricing within 48 hours.",
+                "Social media engagement optimal. Current strategy yielding 3.7x ROI. Suggestion: Increase video content by 20%."
+            ],
+            sw: [
+                "Ninachambua swali lako kwa mitandao ya neva ya quantum... Napendekeza kuboresha CTA za ukurasa wako wa kutua kwa ongezeko la 23% la ubadilishaji.",
+                "Ninachakata data ya soko... Nimegundua mtindo unaojitokeza katika masoko ya Asia ya Kusini-Mashariki na uwezekano wa ukuaji wa 47%.",
+                "Kulingana na uchambuzi wa neva, mkakati wako wa sasa wa SEO una ufanisi wa 94%. Mapendekezo: Ongeza mzunguko wa maudhui kwa 15%.",
+                "Uchunguzi wa usalama wa kiber umekamilika. Mifumo yote salama. Kiwango cha tishio: CHINI. Endelea na itifaki za sasa.",
+                "Muundo wa utabiri wa mapato umewashwa. Unabashiria ukuaji wa 34% robo ijayo kulingana na mwelekeo wa sasa.",
+                "Uchambuzi wa mpinzani umekamilika. Mpinzani mkuu anajaribu mkakati mpya wa bei. Mapendekezo: Tekeleza bei ya nguvu ndani ya masaa 48.",
+                "Ushiriki wa mitandao ya kijamii bora. Mkakati wa sasa unaleta ROI ya 3.7x. Pendekezo: Ongeza maudhui ya video kwa 20%."
+            ]
+        };
+
+        // Chat functionality
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.innerHTML = `
+                <div class="message-header">
+                    <span style="color: var(--neon-purple);">USER</span>
+                    <span style="color: var(--text-secondary);">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                </div>
+                <p>${message}</p>
+            `;
+            chatMessages.appendChild(userMsg);
+            
+            // Clear input
+            input.value = '';
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Show typing indicator
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'message ai';
+            typingIndicator.innerHTML = `
+                <div class="message-header">
+                    <span class="ai-badge">NEURAL AI</span>
+                    <span style="color: var(--text-secondary);">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                </div>
+                <p><i class="fas fa-ellipsis-h"></i> <span class="lang-text" data-en="Processing with quantum neural networks..." data-sw="Ninachakata kwa mitandao ya neva ya quantum...">Processing...</span></p>
+            `;
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // AI response after delay
+            setTimeout(() => {
+                chatMessages.removeChild(typingIndicator);
+                
+                const aiResponse = document.createElement('div');
+                aiResponse.className = 'message ai';
+                
+                // Get random AI response based on language
+                const responses = aiResponses[currentLang] || aiResponses.en;
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                
+                aiResponse.innerHTML = `
+                    <div class="message-header">
+                        <span class="ai-badge">NEURAL AI</span>
+                        <span style="color: var(--text-secondary);">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                    </div>
+                    <p>${randomResponse}</p>
+                `;
+                
+                chatMessages.appendChild(aiResponse);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Animate neural network
+                animateNeuralNetwork();
+            }, 1500 + Math.random() * 2000);
+        }
+
+        // Animate neural network
+        function animateNeuralNetwork() {
+            const neurons = document.querySelectorAll('.neuron');
+            const connections = document.querySelectorAll('.connection');
+            
+            // Flash neurons
+            neurons.forEach(neuron => {
+                const originalColor = neuron.style.background;
+                neuron.style.background = '#ff00ff';
+                neuron.style.boxShadow = '0 0 20px #ff00ff';
+                
+                setTimeout(() => {
+                    neuron.style.background = originalColor || 'var(--matrix-green)';
+                    neuron.style.boxShadow = '0 0 10px var(--matrix-green)';
+                }, 300);
+            });
+            
+            // Pulse connections
+            connections.forEach(conn => {
+                const originalOpacity = conn.style.opacity;
+                conn.style.opacity = '0.8';
+                conn.style.background = 'linear-gradient(90deg, #ff00ff, #00f3ff)';
+                
+                setTimeout(() => {
+                    conn.style.opacity = originalOpacity;
+                    conn.style.background = 'linear-gradient(90deg, var(--neon-blue), transparent)';
+                }, 300);
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial language
+            switchLanguage(currentLang);
+            
+            // Add language switcher event listeners
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    switchLanguage(btn.dataset.lang);
+                });
+            });
+            
+            // Mobile menu toggle
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!menuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+            
+            // Active link highlighting
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Initialize neural network
+            createNeuralNetwork();
+            
+            // Chat functionality
+            const sendBtn = document.getElementById('sendMessage');
+            const userInput = document.getElementById('userInput');
+            
+            sendBtn.addEventListener('click', sendMessage);
+            
+            userInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+            
+            // Slider updates
+            const sliders = document.querySelectorAll('.slider');
+            sliders.forEach(slider => {
+                const valueSpan = document.getElementById(`${slider.id}Value`);
+                slider.addEventListener('input', () => {
+                    valueSpan.textContent = slider.value;
+                });
+            });
+            
+            // Optimize button
+            const optimizeBtn = document.getElementById('optimizeBtn');
+            optimizeBtn.addEventListener('click', () => {
+                const originalText = optimizeBtn.innerHTML;
+                optimizeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span class="lang-text" data-en="OPTIMIZING..." data-sw="INABORESHA...">OPTIMIZING...</span>';
+                optimizeBtn.disabled = true;
+                
+                setTimeout(() => {
+                    optimizeBtn.innerHTML = '<i class="fas fa-check"></i> <span class="lang-text" data-en="OPTIMIZED!" data-sw="IMEBOLEHWA!">OPTIMIZED!</span>';
+                    
+                    // Add success message to chat
+                    setTimeout(() => {
+                        const chatMessages = document.getElementById('chatMessages');
+                        const aiResponse = document.createElement('div');
+                        aiResponse.className = 'message ai';
+                        aiResponse.innerHTML = `
+                            <div class="message-header">
+                                <span class="ai-badge">NEURAL AI</span>
+                                <span style="color: var(--text-secondary);">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                            </div>
+                            <p class="lang-text" data-en="✅ Optimization complete! Neural network parameters adjusted for maximum efficiency. Expected performance increase: +18%." 
+                               data-sw="✅ Uboreshaji umekamilika! Vigezo vya mtandao wa neva vimebadilishwa kwa ufanisi wa juu zaidi. Ongezeko linalotarajiwa la utendaji: +18%.">
+                                ✅ Optimization complete!
+                            </p>
+                        `;
+                        chatMessages.appendChild(aiResponse);
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                        
+                        animateNeuralNetwork();
+                    }, 500);
+                    
+                    setTimeout(() => {
+                        optimizeBtn.innerHTML = originalText;
+                        optimizeBtn.disabled = false;
+                    }, 2000);
+                }, 2000);
+            });
+            
+            // Toggle switch animations
+            const toggles = document.querySelectorAll('input[type="checkbox"]');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('change', function() {
+                    const statusCard = document.querySelector('.status-card:last-child .status-indicator');
+                    if (statusCard) {
+                        statusCard.classList.toggle('warning', !this.checked);
+                    }
+                });
+            });
+            
+            // Auto-refresh neural network every 10 seconds
+            setInterval(() => {
+                createNeuralNetwork();
+            }, 10000);
+        });
+    </script>
+</body>
+</html>
