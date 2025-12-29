@@ -3,491 +3,681 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ad Pollex</title>
+    <title>Ad Pollex | We Build Digital Momentum</title>
     <style>
-        /* Absolute minimalism */
+        /* Base */
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --primary: #ff3366;
+            --secondary: #3366ff;
+            --accent: #33ff66;
+            --gray: #666666;
+            --light-gray: #f5f5f5;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+            --font-mono: 'SF Mono', 'Monaco', monospace;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: #000;
-            background: #fff;
-            font-size: 16px;
-            font-weight: 400;
+        html {
+            font-size: 100%;
+            scroll-behavior: smooth;
         }
 
-        /* Header - invisible until needed */
-        header {
+        body {
+            font-family: var(--font-sans);
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        p {
+            font-size: clamp(1rem, 1.5vw, 1.125rem);
+            color: var(--gray);
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        /* Navigation */
+        nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px;
-            z-index: 100;
-            background: transparent;
-            transition: all 0.3s ease;
+            z-index: 1000;
+            padding: 2rem 0;
+            background: var(--white);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
-        header.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #eee;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 20px;
-            font-weight: 400;
-            letter-spacing: -0.5px;
+            font-size: 1.5rem;
+            font-weight: 700;
             text-decoration: none;
-            color: #000;
+            color: var(--black);
+            position: relative;
         }
 
-        nav {
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 3rem;
+            align-items: center;
         }
 
-        nav a {
+        .nav-link {
             text-decoration: none;
-            color: #666;
-            font-size: 14px;
-            font-weight: 400;
-            transition: color 0.3s ease;
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: #000;
+        .nav-link:hover {
+            color: var(--black);
         }
 
-        /* Hero - just text */
+        .nav-cta {
+            background: var(--black);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            opacity: 0.05;
+            transform: rotate(15deg);
         }
 
         .hero-content {
-            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .hero-title span {
+            display: block;
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--black);
+            border: 2px solid var(--black);
+        }
+
+        .btn-secondary:hover {
+            background: var(--black);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            padding: 3rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 20px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        /* CTA */
+        .cta {
             text-align: center;
+            background: var(--light-gray);
+            border-radius: 40px;
+            padding: 6rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 400;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            opacity: 0.1;
+            border-radius: 50%;
         }
 
-        .hero p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 40px;
+        .cta h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            margin-bottom: 3rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Simple button */
-        .btn {
-            display: inline-block;
-            padding: 12px 32px;
-            border: 1px solid #000;
-            color: #000;
-            text-decoration: none;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            background: transparent;
-        }
-
-        .btn:hover {
-            background: #000;
-            color: #fff;
-        }
-
-        /* Section styling */
-        .section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 32px;
-            font-weight: 400;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        /* Services - minimal grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .service {
-            padding: 30px;
-            border: 1px solid #eee;
-        }
-
-        .service h3 {
-            font-size: 18px;
-            font-weight: 400;
-            margin-bottom: 15px;
-        }
-
-        .service p {
-            color: #666;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        /* Portfolio - simple list */
-        .portfolio-list {
-            list-style: none;
-        }
-
-        .portfolio-item {
-            padding: 30px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .portfolio-item:last-child {
-            border-bottom: none;
-        }
-
-        .portfolio-item h3 {
-            font-size: 18px;
-            font-weight: 400;
-        }
-
-        .portfolio-item p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        /* About */
-        .about-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-content p {
-            color: #666;
-            margin-bottom: 20px;
-            font-size: 17px;
-            line-height: 1.7;
-        }
-
-        /* Contact form - ultra simple */
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: #666;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-            font-family: inherit;
-            background: transparent;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #000;
-        }
-
         /* Footer */
         footer {
-            padding: 60px 20px;
-            border-top: 1px solid #eee;
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 0;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
+            gap: 3rem;
         }
 
         .footer-col h4 {
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 20px;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.1em;
         }
 
-        .footer-col p,
-        .footer-col a {
-            color: #666;
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
             text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 10px;
-            display: block;
+            transition: color 0.3s;
         }
 
-        .footer-col a:hover {
-            color: #000;
+        .footer-links a:hover {
+            color: var(--white);
         }
 
-        .copyright {
-            text-align: center;
-            padding-top: 40px;
-            margin-top: 40px;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 13px;
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeIn 1s ease forwards;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .section-title {
-                font-size: 28px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            nav {
+            .nav-links {
                 display: none;
             }
             
-            .portfolio-item {
+            .hero-stats {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+                gap: 2rem;
             }
-        }
-
-        /* Animation classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .cta {
+                padding: 4rem 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
             <a href="#" class="logo">Ad Pollex</a>
-            <nav>
-                <a href="#services">Services</a>
-                <a href="#work">Work</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </nav>
+            <div class="nav-links">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Work</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#contact" class="nav-cta">Start Project</a>
+            </div>
         </div>
-    </header>
+    </nav>
 
+    <!-- Hero -->
     <section class="hero">
-        <div class="hero-content">
-            <h1 class="fade-in">Digital marketing that works.</h1>
-            <p class="fade-in">For businesses in Tanzania that want real results, not just promises.</p>
-            <a href="#contact" class="btn fade-in">Start a conversation</a>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title animate">
+                    We Build<br>
+                    <span>Digital Momentum</span>
+                </h1>
+                <p class="hero-subtitle animate">
+                    For Tanzanian businesses ready to accelerate growth. 
+                    We don't just create campaigns—we engineer market movement.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary animate">Start Your Journey</a>
+                    <a href="#portfolio" class="btn btn-secondary animate">View Our Work</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat animate">
+                        <div class="stat-number">8+</div>
+                        <div class="stat-label">Years Excellence</div>
+                    </div>
+                    <div class="stat animate">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat animate">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Services -->
     <section id="services" class="section">
-        <h2 class="section-title fade-in">What we do</h2>
-        <div class="services-grid">
-            <div class="service fade-in">
-                <h3>Digital Strategy</h3>
-                <p>Creating effective online campaigns that reach your target audience and deliver measurable results.</p>
-            </div>
-            <div class="service fade-in">
-                <h3>Brand Development</h3>
-                <p>Building strong, memorable brands that connect with customers and stand out in the market.</p>
-            </div>
-            <div class="service fade-in">
-                <h3>Website & SEO</h3>
-                <p>Designing fast, beautiful websites that rank well and convert visitors into customers.</p>
-            </div>
-            <div class="service fade-in">
-                <h3>Social Media</h3>
-                <p>Managing your online presence to build genuine relationships with your audience.</p>
+        <div class="container">
+            <h2 class="animate">Strategic Services</h2>
+            <p class="animate">Comprehensive solutions tailored for the Tanzanian market</p>
+            
+            <div class="services-grid">
+                <div class="service-card animate">
+                    <div class="service-icon">↯</div>
+                    <h3>Digital Marketing</h3>
+                    <p>Data-driven campaigns that deliver measurable ROI and sustainable growth.</p>
+                </div>
+                
+                <div class="service-card animate">
+                    <div class="service-icon">◈</div>
+                    <h3>Brand Strategy</h3>
+                    <p>Crafting compelling brand narratives that resonate with local audiences.</p>
+                </div>
+                
+                <div class="service-card animate">
+                    <div class="service-icon">⟁</div>
+                    <h3>Web & SEO</h3>
+                    <p>High-performance websites optimized for search and conversion.</p>
+                </div>
+                
+                <div class="service-card animate">
+                    <div class="service-icon">⧉</div>
+                    <h3>Social Media</h3>
+                    <p>Building authentic community engagement that drives business results.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="work" class="section" style="background: #f9f9f9;">
-        <h2 class="section-title fade-in">Recent work</h2>
-        <div class="portfolio-list">
-            <div class="portfolio-item fade-in">
-                <div>
-                    <h3>Tanzanian Retail Brand</h3>
-                    <p>Increased online sales by 300% in 6 months</p>
+    <!-- Portfolio -->
+    <section id="portfolio" class="section" style="background: var(--light-gray);">
+        <div class="container">
+            <h2 class="animate">Featured Work</h2>
+            <p class="animate">Real results for Tanzanian businesses</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item animate">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="E-commerce">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3 style="color: white;">Tanzanian Retail</h3>
+                            <p style="color: rgba(255,255,255,0.8);">300% sales growth in 6 months</p>
+                        </div>
+                    </div>
                 </div>
-                <a href="#" class="btn">View case</a>
-            </div>
-            <div class="portfolio-item fade-in">
-                <div>
-                    <h3>Safari Company</h3>
-                    <p>180% growth in bookings through digital transformation</p>
+                
+                <div class="portfolio-item animate">
+                    <img src="https://images.unsplash.com/photo-1551836026-d5c2c4af08f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Tourism">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3 style="color: white;">Safari Company</h3>
+                            <p style="color: rgba(255,255,255,0.8);">150% booking increase</p>
+                        </div>
+                    </div>
                 </div>
-                <a href="#" class="btn">View case</a>
-            </div>
-            <div class="portfolio-item fade-in">
-                <div>
-                    <h3>Fashion Label</h3>
-                    <p>Brand strategy leading to national recognition</p>
+                
+                <div class="portfolio-item animate">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Fashion">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3 style="color: white;">Fashion Brand</h3>
+                            <p style="color: rgba(255,255,255,0.8);">National brand launch success</p>
+                        </div>
+                    </div>
                 </div>
-                <a href="#" class="btn">View case</a>
             </div>
         </div>
     </section>
 
+    <!-- About -->
     <section id="about" class="section">
-        <div class="about-content">
-            <h2 class="section-title fade-in">About us</h2>
-            <p class="fade-in">We started in 2016 with a simple goal: help Tanzanian businesses succeed online. No jargon, no empty promises—just honest work that gets results.</p>
-            <p class="fade-in">Today, we're a small team of specialists who understand both digital marketing and the Tanzanian market. We speak your language and know how to help you grow.</p>
-            <div style="margin-top: 40px;">
-                <div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 40px;">
-                    <div class="fade-in">
-                        <div style="font-size: 32px; font-weight: 400;">8+</div>
-                        <div style="color: #666; font-size: 14px;">Years</div>
-                    </div>
-                    <div class="fade-in">
-                        <div style="font-size: 32px; font-weight: 400;">200+</div>
-                        <div style="color: #666; font-size: 14px;">Projects</div>
-                    </div>
-                    <div class="fade-in">
-                        <div style="font-size: 32px; font-weight: 400;">50+</div>
-                        <div style="color: #666; font-size: 14px;">Clients</div>
-                    </div>
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="animate">Our Story</h2>
+                    <p class="animate">Founded in 2016, Ad Pollex began with a vision to transform how Tanzanian businesses approach digital marketing.</p>
+                    <p class="animate">Today, we're a team of strategists, creatives, and technologists united by a passion for driving real business growth.</p>
+                    <p class="animate">We believe in marketing that works—strategies that deliver measurable results and campaigns that create lasting impact.</p>
+                </div>
+                <div class="about-image animate">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Our Team">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section" style="background: #f9f9f9;">
-        <h2 class="section-title fade-in">Get in touch</h2>
-        <div class="contact-form">
-            <form class="fade-in">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn" style="width: 100%;">Send message</button>
-            </form>
+    <!-- CTA -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="cta animate">
+                <h2>Ready to Accelerate?</h2>
+                <p>Let's discuss how we can help your business achieve its digital goals.</p>
+                <a href="#contact-form" class="btn btn-primary">Start Conversation</a>
+            </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h4>Ad Pollex</h4>
-                <p>Digital marketing agency based in Dar es Salaam, Tanzania. Helping businesses grow since 2016.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Ad Pollex</h4>
+                    <p>Digital marketing agency helping Tanzanian businesses grow since 2016.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Digital Marketing</a></li>
+                        <li><a href="#services">Brand Strategy</a></li>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">Social Media</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+255684320325">+255 684 320 325</a></li>
+                        <li><a href="mailto:adpollex@gmail.com">adpollex@gmail.com</a></li>
+                        <li><a href="#">Dar es Salaam, Tanzania</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Services</h4>
-                <a href="#">Digital Strategy</a>
-                <a href="#">Brand Development</a>
-                <a href="#">Website & SEO</a>
-                <a href="#">Social Media</a>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <a href="tel:+255684320325">+255 684 320 325</a>
-                <a href="mailto:adpollex@gmail.com">adpollex@gmail.com</a>
-                <p>Dar es Salaam</p>
-            </div>
-            <div class="footer-col">
-                <h4>Connect</h4>
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Twitter</a>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2024 Ad Pollex. All rights reserved.
         </div>
     </footer>
 
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Fade in animation
-        const fadeElements = document.querySelectorAll('.fade-in');
+        // Simple scroll animation
+        const animateElements = document.querySelectorAll('.animate');
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.style.animationPlayState = 'running';
                 }
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        }, { threshold: 0.1 });
+        
+        animateElements.forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
         });
-
-        fadeElements.forEach(el => observer.observe(el));
-
+        
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -504,22 +694,27 @@
                 }
             });
         });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you. We\'ll be in touch soon.');
-            e.target.reset();
+        
+        // Nav scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '1rem 0';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.padding = '2rem 0';
+                nav.style.boxShadow = 'none';
+            }
         });
-
-        // Simple hover effect for service cards
-        document.querySelectorAll('.service').forEach(card => {
+        
+        // Service card hover effect
+        document.querySelectorAll('.service-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
-                card.style.borderColor = '#000';
+                card.style.transform = 'translateY(-10px)';
             });
             
             card.addEventListener('mouseleave', () => {
-                card.style.borderColor = '#eee';
+                card.style.transform = 'translateY(0)';
             });
         });
     </script>
