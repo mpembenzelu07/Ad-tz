@@ -1,21 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ad Pollex | We Build Digital Momentum</title>
+    <title data-en="Ad Pollex | Home - Digital Marketing Agency Tanzania" 
+          data-sw="Ad Pollex | Nyumbani - Kampuni ya Uuzaji Dijitali Tanzania">
+        Ad Pollex | Digital Marketing Agency Tanzania
+    </title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        /* Base */
+        /* Base Styles */
         :root {
-            --black: #0a0a0a;
-            --white: #ffffff;
-            --primary: #ff3366;
-            --secondary: #3366ff;
-            --accent: #33ff66;
-            --gray: #666666;
-            --light-gray: #f5f5f5;
-            --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
-            --font-mono: 'SF Mono', 'Monaco', monospace;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         * {
@@ -25,31 +41,31 @@
         }
 
         html {
-            font-size: 100%;
+            font-size: 16px;
             scroll-behavior: smooth;
         }
 
         body {
             font-family: var(--font-sans);
-            background: var(--white);
-            color: var(--black);
+            color: var(--dark);
+            background: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Typography */
         h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
             font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
 
         h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
         }
 
         h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2rem, 4vw, 3rem);
         }
 
         h3 {
@@ -57,33 +73,75 @@
         }
 
         p {
-            font-size: clamp(1rem, 1.5vw, 1.125rem);
             color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
-        /* Layout */
         .container {
             width: 100%;
-            max-width: 1400px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
 
         .section {
-            padding: 8rem 0;
-            position: relative;
+            padding: 6rem 0;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            display: inline-flex;
+            background: var(--gray-light);
+            border-radius: 50px;
+            padding: 4px;
+            margin-left: 1rem;
+        }
+
+        .lang-btn {
+            padding: 8px 20px;
+            border: none;
+            background: transparent;
+            border-radius: 50px;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lang-btn.active {
+            background: white;
+            box-shadow: var(--shadow);
+            color: var(--primary);
+        }
+
+        .lang-btn img {
+            width: 20px;
+            height: 15px;
+            border-radius: 2px;
         }
 
         /* Navigation */
-        nav {
+        header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 2rem 0;
-            background: var(--white);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow);
         }
 
         .nav-container {
@@ -93,60 +151,94 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--black);
-            position: relative;
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 30px;
-            height: 2px;
-            background: var(--primary);
-        }
-
-        .nav-links {
             display: flex;
-            gap: 3rem;
             align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--dark);
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
         }
 
         .nav-link {
             text-decoration: none;
-            color: var(--gray);
-            font-size: 0.9rem;
+            color: var(--dark);
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
         }
 
-        .nav-link:hover {
-            color: var(--black);
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
         }
 
         .nav-cta {
-            background: var(--black);
-            color: var(--white);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
             text-decoration: none;
-            font-size: 0.9rem;
             font-weight: 500;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
 
         .nav-cta:hover {
-            background: var(--primary);
+            background: var(--primary-dark);
             transform: translateY(-2px);
         }
 
-        /* Hero */
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -160,249 +252,301 @@
             position: absolute;
             top: -50%;
             right: -20%;
-            width: 60%;
-            height: 200%;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            opacity: 0.05;
-            transform: rotate(15deg);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 1;
+            max-width: 800px;
         }
 
-        .hero-title {
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
             margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .hero-title span {
-            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
             color: var(--primary);
         }
 
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--gray);
-            margin-bottom: 3rem;
-            max-width: 600px;
+        .hero-badge i {
+            color: var(--accent);
         }
 
-        .hero-cta {
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .hero-buttons {
             display: flex;
             gap: 1rem;
             margin-bottom: 4rem;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
             font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s;
+            text-decoration: none;
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 8px;
+            font-size: 1rem;
         }
 
         .btn-primary {
             background: var(--primary);
-            color: var(--white);
-            border: 2px solid var(--primary);
+            color: white;
         }
 
         .btn-primary:hover {
-            background: transparent;
-            color: var(--primary);
+            background: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
         .btn-secondary {
-            background: transparent;
-            color: var(--black);
-            border: 2px solid var(--black);
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--gray-light);
         }
 
         .btn-secondary:hover {
-            background: var(--black);
-            color: var(--white);
+            border-color: var(--primary);
             transform: translateY(-2px);
         }
 
         .hero-stats {
-            display: flex;
-            gap: 3rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
             padding-top: 3rem;
-            border-top: 1px solid rgba(0,0,0,0.1);
+            border-top: 1px solid var(--gray-light);
         }
 
-        .stat {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-number {
+        .stat-item h3 {
             font-size: 2.5rem;
-            font-weight: 700;
             color: var(--primary);
-            line-height: 1;
             margin-bottom: 0.5rem;
         }
 
-        .stat-label {
+        .stat-item p {
             font-size: 0.9rem;
             color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+            margin: 0;
         }
 
-        /* Services */
+        /* Services Preview */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
 
         .service-card {
-            padding: 3rem;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 20px;
-            transition: all 0.3s;
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-lg);
         }
 
         .service-icon {
-            font-size: 2.5rem;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
             margin-bottom: 1.5rem;
+        }
+
+        .service-link {
             color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 1rem;
         }
 
-        .service-card h3 {
-            margin-bottom: 1rem;
-        }
-
-        /* Portfolio */
+        /* Portfolio Preview */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
 
         .portfolio-item {
-            position: relative;
-            border-radius: 20px;
+            background: white;
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            aspect-ratio: 4/3;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
-        .portfolio-item img {
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .portfolio-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: var(--transition);
         }
 
-        .portfolio-item:hover img {
-            transform: scale(1.1);
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.05);
         }
 
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            display: flex;
-            align-items: flex-end;
+        .portfolio-content {
             padding: 2rem;
-            opacity: 0;
-            transition: opacity 0.3s;
         }
 
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-
-        /* About */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 20px;
-        }
-
-        /* CTA */
-        .cta {
-            text-align: center;
-            background: var(--light-gray);
-            border-radius: 40px;
-            padding: 6rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 300px;
-            height: 300px;
-            background: var(--primary);
-            opacity: 0.1;
-            border-radius: 50%;
-        }
-
-        .cta h2 {
+        .portfolio-category {
+            display: inline-block;
+            background: var(--gray-light);
+            color: var(--dark);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
             margin-bottom: 1rem;
         }
 
-        .cta p {
-            margin-bottom: 3rem;
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            border-radius: var(--radius-lg);
+            margin: 4rem 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .cta-section .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta-section .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--dark);
+            color: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
         /* Footer */
         footer {
-            background: var(--black);
-            color: var(--white);
-            padding: 4rem 0;
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
             gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .footer-col h4 {
-            font-size: 1rem;
+            color: white;
+            font-size: 1.1rem;
             margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
         }
 
         .footer-links {
@@ -410,21 +554,118 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.75rem;
         }
 
         .footer-links a {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
 
         .footer-links a:hover {
-            color: var(--white);
+            color: white;
+            padding-left: 5px;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .mobile-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                z-index: 999;
+            }
+            
+            .mobile-menu.active {
+                display: flex;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -435,187 +676,289 @@
             }
         }
 
-        .animate {
-            animation: fadeIn 1s ease forwards;
+        .fade-in {
+            opacity: 0;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .hero-cta {
-                flex-direction: column;
-            }
-            
-            .cta {
-                padding: 4rem 2rem;
-            }
+        .animated {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
+    <header id="header">
         <div class="container nav-container">
-            <a href="#" class="logo">Ad Pollex</a>
-            <div class="nav-links">
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#portfolio" class="nav-link">Work</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="#contact" class="nav-cta">Start Project</a>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">AP</div>
+                <div class="logo-text">
+                    <h1>Ad Pollex</h1>
+                    <p class="logo-tagline" data-en="Digital Growth Partners" data-sw="Wasaidizi wa Ukuaji wa Dijitali">Digital Growth Partners</p>
+                </div>
+            </a>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active" data-key="nav_home">Home</a>
+                <a href="services.html" class="nav-link" data-key="nav_services">Services</a>
+                <a href="portfolio.html" class="nav-link" data-key="nav_portfolio">Portfolio</a>
+                <a href="about.html" class="nav-link" data-key="nav_about">About</a>
+                <a href="contact.html" class="nav-link" data-key="nav_contact">Contact</a>
+                
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="English"> EN
+                    </button>
+                    <button class="lang-btn" data-lang="sw">
+                        <img src="https://flagcdn.com/w20/tz.png" alt="Swahili"> SW
+                    </button>
+                </div>
+                
+                <a href="contact.html" class="nav-cta" data-key="nav_cta">Start Project</a>
             </div>
         </div>
-    </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="nav-link active" data-key="nav_home">Home</a>
+            <a href="services.html" class="nav-link" data-key="nav_services">Services</a>
+            <a href="portfolio.html" class="nav-link" data-key="nav_portfolio">Portfolio</a>
+            <a href="about.html" class="nav-link" data-key="nav_about">About</a>
+            <a href="contact.html" class="nav-link" data-key="nav_contact">Contact</a>
+            
+            <div class="language-toggle" style="margin: 1rem 0;">
+                <button class="lang-btn active" data-lang="en">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="English"> EN
+                </button>
+                <button class="lang-btn" data-lang="sw">
+                    <img src="https://flagcdn.com/w20/tz.png" alt="Swahili"> SW
+                </button>
+            </div>
+            
+            <a href="contact.html" class="nav-cta" data-key="nav_cta" style="text-align: center;">Start Project</a>
+        </div>
+    </header>
 
-    <!-- Hero -->
-    <section class="hero">
+    <!-- Hero Section -->
+    <section class="hero section">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title animate">
-                    We Build<br>
-                    <span>Digital Momentum</span>
-                </h1>
-                <p class="hero-subtitle animate">
-                    For Tanzanian businesses ready to accelerate growth. 
-                    We don't just create campaigns—we engineer market movement.
-                </p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary animate">Start Your Journey</a>
-                    <a href="#portfolio" class="btn btn-secondary animate">View Our Work</a>
+                <div class="hero-badge fade-in" data-animate="true">
+                    <i class="fas fa-award"></i>
+                    <span data-key="hero_badge">Since 2016</span>
                 </div>
+                
+                <h1 class="fade-in" data-animate="true" data-key="hero_title">We help Tanzanian businesses grow with purpose</h1>
+                
+                <p class="hero-description fade-in" data-animate="true" data-key="hero_desc">
+                    Strategic digital marketing that delivers measurable results. We blend local expertise with global insights to drive sustainable growth for your business.
+                </p>
+                
+                <div class="hero-buttons fade-in" data-animate="true">
+                    <a href="contact.html" class="btn btn-primary" data-key="hero_cta1">
+                        Start Your Journey
+                    </a>
+                    <a href="portfolio.html" class="btn btn-secondary" data-key="hero_cta2">
+                        View Our Work
+                    </a>
+                </div>
+                
                 <div class="hero-stats">
-                    <div class="stat animate">
-                        <div class="stat-number">8+</div>
-                        <div class="stat-label">Years Excellence</div>
+                    <div class="stat-item fade-in" data-animate="true">
+                        <h3>50+</h3>
+                        <p data-key="stat_clients">Happy Clients</p>
                     </div>
-                    <div class="stat animate">
-                        <div class="stat-number">200+</div>
-                        <div class="stat-label">Projects Delivered</div>
+                    <div class="stat-item fade-in" data-animate="true">
+                        <h3>8+</h3>
+                        <p data-key="stat_years">Years Experience</p>
                     </div>
-                    <div class="stat animate">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Happy Clients</div>
+                    <div class="stat-item fade-in" data-animate="true">
+                        <h3>200+</h3>
+                        <p data-key="stat_projects">Projects Completed</p>
+                    </div>
+                    <div class="stat-item fade-in" data-animate="true">
+                        <h3>11-50</h3>
+                        <p data-key="stat_team">Team Members</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
+    <!-- Services Preview -->
     <section id="services" class="section">
         <div class="container">
-            <h2 class="animate">Strategic Services</h2>
-            <p class="animate">Comprehensive solutions tailored for the Tanzanian market</p>
+            <h2 class="fade-in" data-animate="true" data-key="services_title">Our Services</h2>
+            <p class="fade-in" data-animate="true" data-key="services_desc">Comprehensive solutions tailored for the Tanzanian market</p>
             
             <div class="services-grid">
-                <div class="service-card animate">
-                    <div class="service-icon">↯</div>
-                    <h3>Digital Marketing</h3>
-                    <p>Data-driven campaigns that deliver measurable ROI and sustainable growth.</p>
+                <div class="service-card fade-in" data-animate="true">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-key="service1_title">Digital Marketing</h3>
+                    <p data-key="service1_desc">Data-driven campaigns that deliver measurable ROI and sustainable growth.</p>
+                    <a href="services.html#digital-marketing" class="service-link" data-key="service_link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
-                <div class="service-card animate">
-                    <div class="service-icon">◈</div>
-                    <h3>Brand Strategy</h3>
-                    <p>Crafting compelling brand narratives that resonate with local audiences.</p>
+                <div class="service-card fade-in" data-animate="true">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 data-key="service2_title">Brand Strategy</h3>
+                    <p data-key="service2_desc">Crafting compelling brand narratives that resonate with local audiences.</p>
+                    <a href="services.html#branding" class="service-link" data-key="service_link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
-                <div class="service-card animate">
-                    <div class="service-icon">⟁</div>
-                    <h3>Web & SEO</h3>
-                    <p>High-performance websites optimized for search and conversion.</p>
+                <div class="service-card fade-in" data-animate="true">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 data-key="service3_title">Web & SEO</h3>
+                    <p data-key="service3_desc">High-performance websites optimized for search and conversion.</p>
+                    <a href="services.html#seo" class="service-link" data-key="service_link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
-                <div class="service-card animate">
-                    <div class="service-icon">⧉</div>
-                    <h3>Social Media</h3>
-                    <p>Building authentic community engagement that drives business results.</p>
+                <div class="service-card fade-in" data-animate="true">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 data-key="service4_title">Social Media</h3>
+                    <p data-key="service4_desc">Building authentic community engagement that drives business results.</p>
+                    <a href="services.html#social-media" class="service-link" data-key="service_link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;" class="fade-in" data-animate="true">
+                <a href="services.html" class="btn btn-secondary" data-key="view_all_services">
+                    View All Services
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="section" style="background: var(--light-gray);">
+    <!-- Portfolio Preview -->
+    <section id="portfolio" class="section" style="background: #f8fafc;">
         <div class="container">
-            <h2 class="animate">Featured Work</h2>
-            <p class="animate">Real results for Tanzanian businesses</p>
+            <h2 class="fade-in" data-animate="true" data-key="portfolio_title">Our Work</h2>
+            <p class="fade-in" data-animate="true" data-key="portfolio_desc">Real results for real Tanzanian businesses</p>
             
             <div class="portfolio-grid">
-                <div class="portfolio-item animate">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="E-commerce">
-                    <div class="portfolio-overlay">
-                        <div>
-                            <h3 style="color: white;">Tanzanian Retail</h3>
-                            <p style="color: rgba(255,255,255,0.8);">300% sales growth in 6 months</p>
-                        </div>
+                <div class="portfolio-item fade-in" data-animate="true">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Retail">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">E-commerce</span>
+                        <h3 data-key="project1_title">Tanzanian Retail Brand</h3>
+                        <p data-key="project1_desc">300% sales growth in 6 months through strategic digital transformation.</p>
+                        <a href="portfolio.html#project1" class="btn btn-primary" style="margin-top: 1rem;" data-key="view_case">
+                            View Case Study
+                        </a>
                     </div>
                 </div>
                 
-                <div class="portfolio-item animate">
-                    <img src="https://images.unsplash.com/photo-1551836026-d5c2c4af08f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Tourism">
-                    <div class="portfolio-overlay">
-                        <div>
-                            <h3 style="color: white;">Safari Company</h3>
-                            <p style="color: rgba(255,255,255,0.8);">150% booking increase</p>
-                        </div>
+                <div class="portfolio-item fade-in" data-animate="true">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551836026-d5c2c4af08f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tourism">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Tourism</span>
+                        <h3 data-key="project2_title">Safari Tour Company</h3>
+                        <p data-key="project2_desc">150% increase in bookings with complete digital overhaul.</p>
+                        <a href="portfolio.html#project2" class="btn btn-primary" style="margin-top: 1rem;" data-key="view_case">
+                            View Case Study
+                        </a>
                     </div>
                 </div>
-                
-                <div class="portfolio-item animate">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Fashion">
-                    <div class="portfolio-overlay">
-                        <div>
-                            <h3 style="color: white;">Fashion Brand</h3>
-                            <p style="color: rgba(255,255,255,0.8);">National brand launch success</p>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;" class="fade-in" data-animate="true">
+                <a href="portfolio.html" class="btn btn-secondary" data-key="view_all_projects">
+                    View All Projects
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section">
+    <!-- Testimonials -->
+    <section class="section testimonials">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="animate">Our Story</h2>
-                    <p class="animate">Founded in 2016, Ad Pollex began with a vision to transform how Tanzanian businesses approach digital marketing.</p>
-                    <p class="animate">Today, we're a team of strategists, creatives, and technologists united by a passion for driving real business growth.</p>
-                    <p class="animate">We believe in marketing that works—strategies that deliver measurable results and campaigns that create lasting impact.</p>
+            <h2 style="color: white;" class="fade-in" data-animate="true" data-key="testimonials_title">What Our Clients Say</h2>
+            <p style="color: rgba(255, 255, 255, 0.8);" class="fade-in" data-animate="true" data-key="testimonials_desc">Success stories from businesses we've helped grow</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in" data-animate="true">
+                    <div class="testimonial-content">
+                        "Working with Ad Pollex transformed our online presence. Our sales have tripled in just 6 months!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JK</div>
+                        <div>
+                            <h4>John Kimani</h4>
+                            <p>CEO, RetailPro Tanzania</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-image animate">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Our Team">
+                
+                <div class="testimonial-card fade-in" data-animate="true">
+                    <div class="testimonial-content">
+                        "Their understanding of the Tanzanian market combined with digital expertise is unmatched."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SA</div>
+                        <div>
+                            <h4>Sarah Ahmed</h4>
+                            <p>Founder, Safari Wonders</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in" data-animate="true">
+                    <div class="testimonial-content">
+                        "Professional, reliable, and results-driven. Ad Pollex delivered beyond our expectations."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DM</div>
+                        <div>
+                            <h4>David Mwamba</h4>
+                            <p>Marketing Director, TechSolutions</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA Section -->
     <section id="contact" class="section">
         <div class="container">
-            <div class="cta animate">
-                <h2>Ready to Accelerate?</h2>
-                <p>Let's discuss how we can help your business achieve its digital goals.</p>
-                <a href="#contact-form" class="btn btn-primary">Start Conversation</a>
+            <div class="cta-section">
+                <h2 class="fade-in" data-animate="true" data-key="cta_title">Ready to grow?</h2>
+                <p class="fade-in" data-animate="true" data-key="cta_desc">Let's discuss how we can help your business achieve its digital goals.</p>
+                <div class="cta-buttons fade-in" data-animate="true">
+                    <a href="contact.html" class="btn btn-primary" data-key="cta_button">Start Conversation</a>
+                    <a href="tel:+255684320325" class="btn btn-secondary">+255 684 320 325</a>
+                </div>
             </div>
         </div>
     </section>
@@ -625,97 +968,282 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Ad Pollex</h4>
-                    <p>Digital marketing agency helping Tanzanian businesses grow since 2016.</p>
+                    <h4 data-key="footer_company">Ad Pollex</h4>
+                    <p data-key="footer_tagline">Digital marketing agency helping Tanzanian businesses grow since 2016.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Services</h4>
+                    <h4 data-key="footer_quick">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#services">Digital Marketing</a></li>
-                        <li><a href="#services">Brand Strategy</a></li>
-                        <li><a href="#services">Web Development</a></li>
-                        <li><a href="#services">Social Media</a></li>
+                        <li><a href="index.html" data-key="nav_home">Home</a></li>
+                        <li><a href="services.html" data-key="nav_services">Services</a></li>
+                        <li><a href="portfolio.html" data-key="nav_portfolio">Portfolio</a></li>
+                        <li><a href="about.html" data-key="nav_about">About</a></li>
+                        <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Contact</h4>
+                    <h4 data-key="footer_services">Services</h4>
                     <ul class="footer-links">
-                        <li><a href="tel:+255684320325">+255 684 320 325</a></li>
-                        <li><a href="mailto:adpollex@gmail.com">adpollex@gmail.com</a></li>
-                        <li><a href="#">Dar es Salaam, Tanzania</a></li>
+                        <li><a href="services.html#digital-marketing" data-key="service1_title">Digital Marketing</a></li>
+                        <li><a href="services.html#branding" data-key="service2_title">Brand Strategy</a></li>
+                        <li><a href="services.html#seo" data-key="service3_title">Web & SEO</a></li>
+                        <li><a href="services.html#social-media" data-key="service4_title">Social Media</a></li>
+                        <li><a href="services.html" data-key="view_all_services">All Services</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Connect</h4>
+                    <h4 data-key="footer_contact">Contact</h4>
                     <ul class="footer-links">
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
+                        <li><a href="tel:+255684320325"><i class="fas fa-phone"></i> +255 684 320 325</a></li>
+                        <li><a href="mailto:adpollex@gmail.com"><i class="fas fa-envelope"></i> adpollex@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Dar es Salaam, Tanzania</a></li>
                     </ul>
                 </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-key="copyright">© 2024 Ad Pollex. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Simple scroll animation
-        const animateElements = document.querySelectorAll('.animate');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        animateElements.forEach(el => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
-        });
-        
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Nav scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.padding = '1rem 0';
-                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.padding = '2rem 0';
-                nav.style.boxShadow = 'none';
+        // Language Management
+        const translations = {
+            en: {
+                site_title: "Ad Pollex | Home - Digital Marketing Agency Tanzania",
+                nav_home: "Home",
+                nav_services: "Services",
+                nav_portfolio: "Portfolio",
+                nav_about: "About",
+                nav_contact: "Contact",
+                nav_cta: "Start Project",
+                hero_badge: "Since 2016",
+                hero_title: "We help Tanzanian businesses grow with purpose",
+                hero_desc: "Strategic digital marketing that delivers measurable results. We blend local expertise with global insights to drive sustainable growth for your business.",
+                hero_cta1: "Start Your Journey",
+                hero_cta2: "View Our Work",
+                stat_clients: "Happy Clients",
+                stat_years: "Years Experience",
+                stat_projects: "Projects Completed",
+                stat_team: "Team Members",
+                services_title: "Our Services",
+                services_desc: "Comprehensive solutions tailored for the Tanzanian market",
+                service1_title: "Digital Marketing",
+                service1_desc: "Data-driven campaigns that deliver measurable ROI and sustainable growth.",
+                service2_title: "Brand Strategy",
+                service2_desc: "Crafting compelling brand narratives that resonate with local audiences.",
+                service3_title: "Web & SEO",
+                service3_desc: "High-performance websites optimized for search and conversion.",
+                service4_title: "Social Media",
+                service4_desc: "Building authentic community engagement that drives business results.",
+                service_link: "Learn More",
+                portfolio_title: "Our Work",
+                portfolio_desc: "Real results for real Tanzanian businesses",
+                project1_title: "Tanzanian Retail Brand",
+                project1_desc: "300% sales growth in 6 months through strategic digital transformation.",
+                project2_title: "Safari Tour Company",
+                project2_desc: "150% increase in bookings with complete digital overhaul.",
+                view_case: "View Case Study",
+                view_all_services: "View All Services",
+                view_all_projects: "View All Projects",
+                testimonials_title: "What Our Clients Say",
+                testimonials_desc: "Success stories from businesses we've helped grow",
+                cta_title: "Ready to grow?",
+                cta_desc: "Let's discuss how we can help your business achieve its digital goals.",
+                cta_button: "Start Conversation",
+                footer_company: "Ad Pollex",
+                footer_tagline: "Digital marketing agency helping Tanzanian businesses grow since 2016.",
+                footer_quick: "Quick Links",
+                footer_services: "Services",
+                footer_contact: "Contact",
+                copyright: "© 2024 Ad Pollex. All rights reserved."
+            },
+            sw: {
+                site_title: "Ad Pollex | Nyumbani - Kampuni ya Uuzaji Dijitali Tanzania",
+                nav_home: "Nyumbani",
+                nav_services: "Huduma",
+                nav_portfolio: "Portfolio",
+                nav_about: "Kuhusu Sisi",
+                nav_contact: "Mawasiliano",
+                nav_cta: "Anza Mradi",
+                hero_badge: "Tangu 2016",
+                hero_title: "Tunasaidia biashara za Tanzania kukua kwa madhumuni",
+                hero_desc: "Uuzaji wa kimkakati wa dijitali unaotoa matokeo yanayoweza kupimika. Tunachanganya utaalam wa ndani na ufahamu wa kimataifa kuendesha ukuaji endelevu kwa biashara yako.",
+                hero_cta1: "Anza Safari Yako",
+                hero_cta2: "Angalia Kazi Yetu",
+                stat_clients: "Wateja Wenye Furaha",
+                stat_years: "Miaka ya Uzoefu",
+                stat_projects: "Miradi Imekamilika",
+                stat_team: "Wanachama wa Timu",
+                services_title: "Huduma Zetu",
+                services_desc: "Suluhisho kamili zilizobinafsishwa kwa soko la Tanzania",
+                service1_title: "Uuzaji Dijitali",
+                service1_desc: "Kampeni zinazotokana na data zinazotoa ROI inayoweza kupimika na ukuaji endelevu.",
+                service2_title: "Mkakati wa Chapa",
+                service2_desc: "Kubuni simulizi za kuvutia za chapa zinazovutia hadhira za ndani.",
+                service3_title: "Wavuti & SEO",
+                service3_desc: "Tovuti za utendaji wa juu zilizoboreshwa kwa utafutaji na ubadilishaji.",
+                service4_title: "Mitandao ya Kijamii",
+                service4_desc: "Kujenga ushirikiano wa kweli wa jamii unaoendesha matokeo ya biashara.",
+                service_link: "Jifunze Zaidi",
+                portfolio_title: "Kazi Yetu",
+                portfolio_desc: "Matokeo halisi kwa biashara halisi za Tanzania",
+                project1_title: "Chapa ya Rejaa Tanzania",
+                project1_desc: "Ukuaji wa mauzo 300% kwa miezi 6 kupitia mabadiliko ya kimkakati ya dijitali.",
+                project2_title: "Kampuni ya Ziara ya Safari",
+                project2_desc: "Ongezeko la 150% katika uhifadhi na uboreshaji kamili wa dijitali.",
+                view_case: "Angalia Utafiti wa Kesi",
+                view_all_services: "Angalia Huduma Zote",
+                view_all_projects: "Angalia Miradi Yote",
+                testimonials_title: "Wanachama Wetu Wanachosema",
+                testimonials_desc: "Hadithi za mafanikio kutoka kwa biashara tulizosaidia kukua",
+                cta_title: "Uko tayari kukua?",
+                cta_desc: "Tujadiliane jinsi tunaweza kusaidia biashara yako kufikia malengo yake ya dijitali.",
+                cta_button: "Anza Mazungumzo",
+                footer_company: "Ad Pollex",
+                footer_tagline: "Kampuni ya uuzaji dijitali inayosaidia biashara za Tanzania kukua tangu 2016.",
+                footer_quick: "Viungo vya Haraka",
+                footer_services: "Huduma",
+                footer_contact: "Mawasiliano",
+                copyright: "© 2024 Ad Pollex. Haki zote zimehifadhiwa."
             }
-        });
-        
-        // Service card hover effect
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px)';
+        };
+
+        // Language Manager
+        class LanguageManager {
+            constructor() {
+                this.currentLang = localStorage.getItem('adpollex_lang') || 'en';
+                this.init();
+            }
+
+            init() {
+                this.setLanguage(this.currentLang);
+                
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const lang = btn.dataset.lang;
+                        this.setLanguage(lang);
+                    });
+                });
+            }
+
+            setLanguage(lang) {
+                this.currentLang = lang;
+                localStorage.setItem('adpollex_lang', lang);
+                
+                // Update active button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.lang === lang) btn.classList.add('active');
+                });
+                
+                // Update all translatable elements
+                document.querySelectorAll('[data-key]').forEach(element => {
+                    const key = element.dataset.key;
+                    if (translations[lang][key]) {
+                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            element.placeholder = translations[lang][key];
+                        } else if (element.hasAttribute('title')) {
+                            element.title = translations[lang][key];
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                });
+                
+                // Update page title
+                document.title = translations[lang].site_title;
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            const langManager = new LanguageManager();
+            
+            // Mobile menu toggle
+            const mobileToggle = document.getElementById('mobileToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                mobileToggle.innerHTML = mobileMenu.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
             });
             
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0)';
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
             });
+            
+            // Scroll animations
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.fade-in[data-animate="true"]');
+                const windowHeight = window.innerHeight;
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.classList.add('animated');
+                    }
+                });
+            };
+            
+            // Initial check
+            animateOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        mobileMenu.classList.remove('active');
+                        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add current year to copyright
+            document.querySelector('[data-key="copyright"]').textContent = 
+                document.querySelector('[data-key="copyright"]').textContent.replace('2024', new Date().getFullYear());
         });
     </script>
 </body>
